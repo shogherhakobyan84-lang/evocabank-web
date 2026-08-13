@@ -62,11 +62,11 @@ export default function HeroSlider() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 4 վայրկյանը մեկ ավտոմատ փոխվելու համար
+  // 7 վայրկյանը մեկ է փոխվում, որպեսզի հանգիստ կարդացվի
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 7000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -81,46 +81,45 @@ export default function HeroSlider() {
   const current = slides[currentIndex];
 
   return (
-    <div className="w-full bg-[#f8eefe] py-10 relative overflow-hidden transition-all duration-500 min-h-[480px] flex flex-col justify-between">
-      <div className="max-w-[1400px] mx-auto px-8 w-full flex flex-col md:flex-row items-center justify-between my-auto">
+    <div className="w-full bg-[#f3edf7] rounded-bl-[80px] md:rounded-bl-[120px] py-12 relative overflow-hidden transition-all duration-500 min-h-[500px]">
+      <div className="max-w-[1400px] mx-auto px-10 flex flex-col md:flex-row items-center justify-between min-h-[400px]">
         
-        {/* Left Side: Dynamic Text & Button */}
-        <div className="max-w-xl space-y-6 z-10">
-          <h1 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight whitespace-pre-line transition-all duration-300">
+        {/* Left Side: Title, Description & Button */}
+        <div className="max-w-xl space-y-6 z-10 pl-2">
+          <h1 className="text-3xl md:text-5xl font-black text-[#2d2d2d] leading-tight whitespace-pre-line tracking-tight">
             {current.title}
           </h1>
-          <p className="text-gray-600 text-lg font-medium leading-relaxed">
+          <p className="text-[#555555] text-lg md:text-xl font-medium leading-relaxed">
             {current.description}
           </p>
-          <div>
-            <button className="bg-[#8c25e8] hover:bg-[#781fd0] text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition duration-200 cursor-pointer text-sm">
+          <div className="pt-2">
+            <button className="bg-[#8c25e8] hover:bg-[#781fd0] text-white font-bold px-8 py-3.5 rounded-full shadow-md transition duration-200 cursor-pointer text-sm">
               {current.buttonText}
             </button>
           </div>
         </div>
 
-        {/* Right Side: Dynamic Image */}
-        <div className="mt-8 md:mt-0 flex justify-center items-center z-10 h-[380px]">
+        {/* Right Side: Larger Image */}
+        <div className="mt-8 md:mt-0 flex justify-end items-center z-10 w-full md:w-1/2">
           <img
             key={current.id}
             src={current.image}
             alt={current.title}
-            className="max-h-[380px] w-auto object-contain transition-all duration-500 transform animate-fade-in"
+            className="max-h-[440px] w-auto object-contain transition-all duration-500 transform"
           />
         </div>
 
       </div>
 
-      {/* Navigation Controls (Arrows & Dots) */}
-      <div className="flex items-center justify-center space-x-3 z-20 relative pt-4">
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-center space-x-3 z-20 relative pt-6 pb-2">
         <button
           onClick={prevSlide}
-          className="text-gray-700 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
+          className="text-gray-600 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
         >
           &larr;
         </button>
 
-        {/* Dots for all 8 slides */}
         {slides.map((_, idx) => (
           <button
             key={idx}
@@ -135,7 +134,7 @@ export default function HeroSlider() {
 
         <button
           onClick={nextSlide}
-          className="text-gray-700 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
+          className="text-gray-600 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
         >
           &rarr;
         </button>
