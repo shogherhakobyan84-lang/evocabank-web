@@ -1,0 +1,145 @@
+import React, { useState, useEffect } from 'react';
+
+export default function HeroSlider() {
+  const slides = [
+    {
+      id: 1,
+      title: 'Օնլայն ավանդ EvocaTOUCH\nhավելվածով',
+      description: "Դի'ր ավանդ Evocabank-ում` բարձր, շա՜տ բարձր տոկոսներով:",
+      buttonText: 'Ծանոթանալ պայմաններին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/16178037539626/79381d3e68fdf7ec25c5837a19ce5821-577x486.jpg',
+    },
+    {
+      id: 2,
+      title: 'Evoca Travel Card',
+      description: 'Այս քարտն իր բազմաթիվ առավելություններով կդառնա քո ճամփորդական անբաժան ընկերը',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/17480089224912/4012c7541d8db15b5666bb0e4f4bdf7a-576x486.png',
+    },
+    {
+      id: 3,
+      title: 'Evoca Աշխատավարձային\nՆախագիծ',
+      description: 'Բեր աշխատավարձդ Evoca: Տար շատ ավելին...',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/17740137222872/7152cafab4609e8483a365f79ecf04cb-577x486.png',
+    },
+    {
+      id: 4,
+      title: 'Կարճ հեռախոսահամար՝ 8444',
+      description: 'Բարի գալուստ, Evocabank։ Մենք սպասում ենք Ձեր զանգին․․․',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/17612202124044/b74e87ec0e83aa10cb128d41f0ada026-577x486.png',
+    },
+    {
+      id: 5,
+      title: 'Visa Vision',
+      description: 'Ձեռք բեր Visa Vision քարտ քո նախընտրած գույնով, դիզայնով ու ոճով և օգտվիր բազմաթիվ առավելություններից',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/16856146843579/345dd727d7ee28e2cd6ec180e5d65740-577x486.jpg',
+    },
+    {
+      id: 6,
+      title: 'Visa Infinite',
+      description: 'Ձեռք բեր Visa վճարային համակարգի ամենաբարձր դասի քարտը հենց հիմա',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/17737433784078/126c54e244e880fd563d8af43979486c-577x485.png',
+    },
+    {
+      id: 7,
+      title: 'Հիփոթեքային վարկեր Evocabank-ում`\nամենահարմար պայմաններով',
+      description: 'Ձե՛ռք բեր քո երազանքի բնակարանը` ցածր տոկոսադրույքով:',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/16178035964191/79381d3e68fdf7ec25c5837a19ce5821-577x486.jpg',
+    },
+    {
+      id: 8,
+      title: 'UnionPay Gold',
+      description: 'Ամբողջ աշխարհում քո արագ և հարմար վճարումների ուղեկիցը',
+      buttonText: 'Իմանալ ավելին',
+      image: 'https://www.evoca.am/images-cache/sliders/1/17262130779724/2fee1054871280f57daf5204f901c563-577x486.png',
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 4 վայրկյանը մեկ ավտոմատ փոխվելու համար
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const current = slides[currentIndex];
+
+  return (
+    <div className="w-full bg-[#f8eefe] py-10 relative overflow-hidden transition-all duration-500 min-h-[480px] flex flex-col justify-between">
+      <div className="max-w-[1400px] mx-auto px-8 w-full flex flex-col md:flex-row items-center justify-between my-auto">
+        
+        {/* Left Side: Dynamic Text & Button */}
+        <div className="max-w-xl space-y-6 z-10">
+          <h1 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight whitespace-pre-line transition-all duration-300">
+            {current.title}
+          </h1>
+          <p className="text-gray-600 text-lg font-medium leading-relaxed">
+            {current.description}
+          </p>
+          <div>
+            <button className="bg-[#8c25e8] hover:bg-[#781fd0] text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition duration-200 cursor-pointer text-sm">
+              {current.buttonText}
+            </button>
+          </div>
+        </div>
+
+        {/* Right Side: Dynamic Image */}
+        <div className="mt-8 md:mt-0 flex justify-center items-center z-10 h-[380px]">
+          <img
+            key={current.id}
+            src={current.image}
+            alt={current.title}
+            className="max-h-[380px] w-auto object-contain transition-all duration-500 transform animate-fade-in"
+          />
+        </div>
+
+      </div>
+
+      {/* Navigation Controls (Arrows & Dots) */}
+      <div className="flex items-center justify-center space-x-3 z-20 relative pt-4">
+        <button
+          onClick={prevSlide}
+          className="text-gray-700 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
+        >
+          &larr;
+        </button>
+
+        {/* Dots for all 8 slides */}
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentIndex(idx)}
+            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+              currentIndex === idx
+                ? 'w-7 bg-[#8c25e8]'
+                : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+            }`}
+          />
+        ))}
+
+        <button
+          onClick={nextSlide}
+          className="text-gray-700 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
+        >
+          &rarr;
+        </button>
+      </div>
+    </div>
+  );
+}
