@@ -1,9 +1,12 @@
-import Header from './components/Header';
+import HeroSlider from './components/HeroSlider';
+import BiometricSection from './components/BiometricSection';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <HeroSlider />
+      <BiometricSection />
     </div>
   );
 }
