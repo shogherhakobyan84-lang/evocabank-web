@@ -62,11 +62,11 @@ export default function HeroSlider() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 7 վայրկյանը մեկ է փոխվում, որպեսզի հանգիստ կարդացվի
+  // 12 վայրկյանը մեկ է փոխվում, որ շատ դանդաղ ու հանգիստ լինի
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 7000);
+    }, 12000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -81,7 +81,7 @@ export default function HeroSlider() {
   const current = slides[currentIndex];
 
   return (
-    <div className="w-full bg-[#f3edf7] rounded-bl-[80px] md:rounded-bl-[120px] py-12 relative overflow-hidden transition-all duration-500 min-h-[500px]">
+    <div className="w-full bg-[#f3edf7] rounded-bl-[120px] lg:rounded-bl-[180px] py-12 relative overflow-hidden transition-all duration-500 min-h-[500px]">
       <div className="max-w-[1400px] mx-auto px-10 flex flex-col md:flex-row items-center justify-between min-h-[400px]">
         
         {/* Left Side: Title, Description & Button */}
@@ -99,7 +99,7 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        {/* Right Side: Larger Image */}
+        {/* Right Side: Image */}
         <div className="mt-8 md:mt-0 flex justify-end items-center z-10 w-full md:w-1/2">
           <img
             key={current.id}
