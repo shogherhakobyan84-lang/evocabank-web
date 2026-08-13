@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 export default function BiometricSection() {
-  // Evocabank-ի բիոմետրիկ նկարների ցանկը
   const faces = [
-    'https://www.evoca.am/images-cache/pages/1/16825102555029/c09ceeb9753e8a75e3e2ec8935c13b3e.png',
-    'https://www.evoca.am/images-cache/pages/1/16825103403323/34e062ee0d2e8b2b9213bc5409a80e4f.png',
-    'https://www.evoca.am/images-cache/pages/1/16825103986420/ebef6cdd2d0b5eddf44fb5bc6ef0dc7c.png',
+    'https://www.evoca.am/img/temp/biometric/face1.png',
+    'https://www.evoca.am/img/temp/biometric/face2.png',
+    'https://www.evoca.am/img/temp/biometric/face3.png',
   ];
 
   const [currentFace, setCurrentFace] = useState(0);
@@ -13,28 +12,23 @@ export default function BiometricSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentFace((prev) => (prev + 1) % faces.length);
-    }, 3000); // Ամեն 3 վայրկյանը մեկ փոխվում է դեմքը
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [faces.length]);
 
   return (
-    <section className="w-full bg-white py-16 px-6 md:px-12">
-      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+    <section className="w-full bg-white py-12 px-6 md:px-16 overflow-hidden">
+      <div className="max-w-[1240px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
         
-        {/* Left Side: Animated Face Container */}
-        <div className="w-full md:w-1/2 flex justify-center items-center relative min-h-[420px]">
-          
-          {/* Back purple triangle glow / background decoration */}
-          <div className="absolute w-[340px] h-[340px] bg-[#8c25e8] rounded-[50px] rotate-45 opacity-5 blur-2xl -z-0" />
-
-          {/* Face Images with Fade Effect */}
-          <div className="relative w-[380px] h-[380px] flex justify-center items-center">
+        {/* Left Side: Face Animated Container */}
+        <div className="w-full md:w-1/2 flex justify-center items-center relative min-h-[380px] md:min-h-[460px]">
+          <div className="relative w-[360px] h-[360px] md:w-[440px] md:h-[440px] flex justify-center items-center">
             {faces.map((imgUrl, index) => (
               <img
                 key={index}
                 src={imgUrl}
-                alt="Biometric Identification Face"
+                alt={`Biometric Face ${index + 1}`}
                 className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out ${
                   index === currentFace ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}
@@ -43,31 +37,74 @@ export default function BiometricSection() {
           </div>
         </div>
 
-        {/* Right Side: Text & QR Code */}
+        {/* Right Side: Content, Large QR & Button */}
         <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-black text-[#212121] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#25282b] leading-[1.25]">
             Դարձիր Evocabank-ի հաճախորդ <br />
-            <span className="text-[#8c25e8]">բիոմետրիկ նույնականացմամբ</span>
+            բիոմետրիկ նույնականացմամբ
           </h2>
 
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-lg">
-            Սկանավորի՛ր QR կոդը, ներբեռնի՛ր EvocaTOUCH հարմարավետ հավելվածը, ստեղծի՛ր քո հաշիվը և ստացիր քարտ:
+          <p className="text-[#333333] text-base md:text-[17px] leading-relaxed max-w-lg font-normal">
+            Սկանավորի՛ր <span className="underline decoration-1 underline-offset-2">QR կոդը</span>, Ներբեռնի՛ր EvocaTOUCH հարմարավետ հավելվածը, ստեղծի՛ր <span className="underline decoration-1 underline-offset-2">քո հաշիվը</span> և ստացիր քարտ
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-2">
-            {/* QR Code Container */}
-            <div className="p-3 bg-white border border-gray-100 rounded-2xl shadow-sm">
-              <img
-                src="https://www.evoca.am/images-cache/pages/1/16825091722394/qr-code.png"
-                alt="EvocaTOUCH QR Code"
-                className="w-32 h-32 object-contain"
-              />
+          <div className="flex flex-row items-end gap-8 pt-4">
+            {/* Real SVG QR Code matching Evocabank design with centered 'V' logo */}
+            <div className="relative w-44 h-44 sm:w-48 sm:h-48 flex-shrink-0">
+              <svg
+                viewBox="0 0 200 200"
+                className="w-full h-full"
+                fill="#7a00e6"
+              >
+                {/* Outer corners & QR finder patterns */}
+                <rect x="10" y="10" width="50" height="50" rx="4" fill="none" stroke="#7a00e6" strokeWidth="12" />
+                <rect x="25" y="25" width="20" height="20" rx="2" />
+                
+                <rect x="140" y="10" width="50" height="50" rx="4" fill="none" stroke="#7a00e6" strokeWidth="12" />
+                <rect x="155" y="25" width="20" height="20" rx="2" />
+                
+                <rect x="10" y="140" width="50" height="50" rx="4" fill="none" stroke="#7a00e6" strokeWidth="12" />
+                <rect x="25" y="155" width="20" height="20" rx="2" />
+
+                {/* Random decorative QR data blocks */}
+                <rect x="70" y="10" width="12" height="24" rx="2" />
+                <rect x="90" y="10" width="24" height="12" rx="2" />
+                <rect x="120" y="10" width="12" height="12" rx="2" />
+                <rect x="70" y="40" width="12" height="12" rx="2" />
+                <rect x="90" y="30" width="12" height="30" rx="2" />
+                <rect x="110" y="45" width="20" height="12" rx="2" />
+
+                <rect x="10" y="70" width="24" height="12" rx="2" />
+                <rect x="40" y="70" width="12" height="24" rx="2" />
+                <rect x="10" y="90" width="12" height="12" rx="2" />
+
+                <rect x="140" y="70" width="12" height="24" rx="2" />
+                <rect x="160" y="70" width="30" height="12" rx="2" />
+                <rect x="175" y="90" width="15" height="15" rx="2" />
+
+                <rect x="70" y="140" width="12" height="24" rx="2" />
+                <rect x="90" y="150" width="24" height="12" rx="2" />
+                <rect x="70" y="175" width="35" height="15" rx="2" />
+                <rect x="120" y="140" width="15" height="45" rx="2" />
+                <rect x="145" y="140" width="45" height="12" rx="2" />
+                <rect x="145" y="160" width="20" height="30" rx="2" />
+                <rect x="172" y="160" width="18" height="18" rx="2" />
+
+                {/* Center White Evoca 'V' logo box */}
+                <rect x="72" y="72" width="56" height="56" fill="white" rx="4" />
+                <path
+                  d="M 84 82 L 95 116 L 105 116 L 116 82 L 105 82 L 100 102 L 95 82 Z"
+                  fill="#7a00e6"
+                />
+              </svg>
             </div>
 
             {/* Action Button */}
-            <button className="bg-[#8c25e8] hover:bg-[#781fd0] text-white font-bold px-8 py-3.5 rounded-full shadow-md transition duration-200 cursor-pointer text-sm">
-              Իմանալ ավելին
-            </button>
+            <div className="pb-2">
+              <button className="bg-[#6b00d7] hover:bg-[#5800b3] text-white font-medium px-8 py-3.5 rounded-full transition duration-200 cursor-pointer text-sm shadow-sm">
+                Իմանալ ավելին
+              </button>
+            </div>
           </div>
         </div>
 
