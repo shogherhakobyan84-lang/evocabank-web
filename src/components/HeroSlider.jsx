@@ -62,7 +62,6 @@ export default function HeroSlider() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 12 վայրկյանը մեկ է փոխվում, որ շատ դանդաղ ու հանգիստ լինի
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
@@ -81,15 +80,15 @@ export default function HeroSlider() {
   const current = slides[currentIndex];
 
   return (
-    <div className="w-full bg-[#f3edf7] rounded-bl-[120px] lg:rounded-bl-[180px] py-12 relative overflow-hidden transition-all duration-500 min-h-[500px]">
-      <div className="max-w-[1400px] mx-auto px-10 flex flex-col md:flex-row items-center justify-between min-h-[400px]">
+    <div className="w-full bg-[#f3edf7] rounded-bl-[100px] lg:rounded-bl-[160px] pt-12 pb-6 relative overflow-hidden transition-all duration-500">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-12 flex flex-col md:flex-row items-center justify-between min-h-[460px]">
         
-        {/* Left Side: Title, Description & Button */}
-        <div className="max-w-xl space-y-6 z-10 pl-2">
-          <h1 className="text-3xl md:text-5xl font-black text-[#2d2d2d] leading-tight whitespace-pre-line tracking-tight">
+        {/* Left Text Block */}
+        <div className="w-full md:w-1/2 space-y-6 z-10 pr-4">
+          <h1 className="text-3xl md:text-5xl font-black text-[#2d2d2d] leading-[1.2] whitespace-pre-line tracking-tight">
             {current.title}
           </h1>
-          <p className="text-[#555555] text-lg md:text-xl font-medium leading-relaxed">
+          <p className="text-[#555555] text-lg md:text-xl font-medium leading-relaxed max-w-lg">
             {current.description}
           </p>
           <div className="pt-2">
@@ -99,20 +98,20 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        {/* Right Side: Image */}
-        <div className="mt-8 md:mt-0 flex justify-end items-center z-10 w-full md:w-1/2">
+        {/* Right Image Block - Full Display */}
+        <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end items-center z-10">
           <img
             key={current.id}
             src={current.image}
             alt={current.title}
-            className="max-h-[440px] w-auto object-contain transition-all duration-500 transform"
+            className="w-full max-w-[580px] h-auto max-h-[480px] object-contain transition-all duration-500"
           />
         </div>
 
       </div>
 
-      {/* Navigation Controls */}
-      <div className="flex items-center justify-center space-x-3 z-20 relative pt-6 pb-2">
+      {/* Slider Indicators & Arrows */}
+      <div className="flex items-center justify-center space-x-3 z-20 relative pt-8 pb-2">
         <button
           onClick={prevSlide}
           className="text-gray-600 hover:text-[#8c25e8] transition text-xl font-bold px-2 cursor-pointer"
