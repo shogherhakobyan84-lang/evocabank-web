@@ -13,7 +13,8 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="w-full bg-white border-b border-gray-100 shadow-sm">
+    // sticky top-0 - սկզբում իր տեղում է, իջնելիս կպչում է վերևին
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-[1400px] mx-auto px-8 flex items-center justify-between h-20">
         
         {/* Left Side: Logo + Nav Links */}
@@ -49,6 +50,6 @@ export default function Navbar() {
         </div>
 
       </div>
-    </div>
+    </header>
   );
 }
