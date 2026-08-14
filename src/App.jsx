@@ -1,25 +1,23 @@
 import React from 'react';
-import Header from './components/Header';
-import Navbar from './components/Navbar'; 
-import HeroSlider from './components/HeroSlider';
-import BiometricSection from './components/BiometricSection';
-import BestSection from './components/BestSection';
-import CardsShowcase from './components/CardsShowcase';
-import LoanCalculator from './components/LoanCalculator';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainLayout from './components/MainLayout'; // 👈 layouts-ը փոխվեց components-ի
+import Home from './components/Home';             // 👈 pages-ը փոխվեց components-ի
+import Loans from './pages/Loans';                 // 👈 Loans-ը ճիշտ է, pages-ում է
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <Navbar /> 
-      <HeroSlider />
-      <BiometricSection />
-      <BestSection />
-      <CardsShowcase />
-      <LoanCalculator />
-     
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          {/* Գլխավոր էջ */}
+          <Route index element={<Home />} />
+          
+          {/* Վարկեր էջ */}
+          <Route path="hy/loans" element={<Loans />} />
+          <Route path="loans" element={<Loans />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
