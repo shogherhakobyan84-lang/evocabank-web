@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 export default function Loans() {
-  // Ակտիվ կատեգորիան պահելու համար state
   const [activeFilter, setActiveFilter] = useState('Բոլորը');
 
   const filters = [
@@ -24,8 +23,8 @@ export default function Loans() {
 
   return (
     <div className="w-full bg-white min-h-screen">
-      {/* 1. Ավելի բարակ/սեղմ մանուշակագույն Sub-Navbar */}
-      <div className="w-full bg-[#7100e2] text-white">
+      {/* 1. Sticky / Fixed մանուշակագույն Sub-Navbar Navbar-ի տակ */}
+      <div className="sticky top-20 z-40 w-full bg-[#7100e2] text-white shadow-md">
         <div className="max-w-[1400px] mx-auto px-8 flex items-center space-x-2">
           {subNavItems.map((item, idx) => (
             <NavLink
@@ -33,7 +32,7 @@ export default function Loans() {
               to={item.path}
               end={item.path === '/hy/loans'}
               className={({ isActive }) =>
-                `px-6 py-2.5 text-sm font-bold transition-colors duration-200 cursor-pointer ${
+                `px-7 py-4.5 text-[15px] font-bold transition-colors duration-200 cursor-pointer ${
                   isActive
                     ? 'bg-[#4c0099] text-white'
                     : 'hover:bg-[#5e00bd] text-white/90'
@@ -47,9 +46,9 @@ export default function Loans() {
       </div>
 
       {/* Էջի հիմնական բովանդակությունը */}
-      <div className="max-w-[1400px] mx-auto px-8 py-4">
+      <div className="max-w-[1400px] mx-auto px-8 py-6">
         
-        {/* 2. Breadcrumbs - Տնակին սեղմելիս տանում է Գլխավոր էջ (/) */}
+        {/* 2. Breadcrumbs */}
         <div className="text-sm text-gray-400 mb-4 flex items-center space-x-2">
           <Link to="/" className="hover:text-purple-600 transition-colors cursor-pointer text-base">
             🏠
@@ -62,12 +61,12 @@ export default function Loans() {
           <span className="text-gray-900 font-medium">Վարկեր</span>
         </div>
 
-        {/* 3. «Վարկեր» վերնագիրը փոքր-ինչ ավելի ներքև */}
+        {/* 3. «Վարկեր» վերնագիրը */}
         <h1 className="text-4xl font-extrabold text-gray-900 mt-6 mb-8">
           Վարկեր
         </h1>
 
-        {/* 4. Ավելի մեծ ու ակնառու Filter buttons (նկարի ոճով) */}
+        {/* 4. Filter buttons */}
         <div className="flex flex-wrap gap-3.5 mb-10">
           {filters.map((filter, idx) => (
             <button
@@ -75,7 +74,7 @@ export default function Loans() {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-3.5 rounded-full text-base font-semibold transition-all duration-200 cursor-pointer ${
                 activeFilter === filter
-                  ? 'bg-[#7100e2] text-white shadow-md' // Ակտիվանալիս՝ մանուշակագույն
+                  ? 'bg-[#7100e2] text-white shadow-md'
                   : 'bg-[#f1f3f5] text-gray-800 hover:bg-gray-200'
               }`}
             >
