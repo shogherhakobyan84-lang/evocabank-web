@@ -1,34 +1,11 @@
-// import React from 'react';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import MainLayout from './components/MainLayout'; // 👈 layouts-ը փոխվեց components-ի
-// import Home from './components/Home';             // 👈 pages-ը փոխվեց components-ի
-// import Loans from './pages/Loans';                 // 👈 Loans-ը ճիշտ է, pages-ում է
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<MainLayout />}>
-//           {/* Գլխավոր էջ */}
-//           <Route index element={<Home />} />
-          
-//           {/* Վարկեր էջ */}
-//           <Route path="hy/loans" element={<Loans />} />
-//           <Route path="loans" element={<Loans />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-
-
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
 import Home from './components/Home';
 import Loans from './pages/Loans';
+import Cards from './pages/Cards';
+import Deposits from './pages/Deposits';
+import Accounts from './pages/Accounts';
 
 function App() {
   return (
@@ -41,6 +18,18 @@ function App() {
           {/* Վարկեր էջ */}
           <Route path="hy/loans" element={<Loans />} />
           <Route path="loans" element={<Loans />} />
+
+          {/* Քարտեր էջ */}
+          <Route path="cards" element={<Cards />} />
+          <Route path="hy/cards" element={<Cards />} />
+
+          {/* Ավանդներ էջ */}
+          <Route path="deposits" element={<Deposits />} />
+          <Route path="hy/deposits" element={<Deposits />} />
+
+          {/* Հաշիվներ էջ */}
+          <Route path="accounts" element={<Accounts />} />
+          <Route path="hy/accounts" element={<Accounts />} />
         </Route>
       </Routes>
     </BrowserRouter>

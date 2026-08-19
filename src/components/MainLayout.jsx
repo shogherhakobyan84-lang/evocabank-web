@@ -1,32 +1,69 @@
-// src/layouts/MainLayout.jsx
+// import React, { useEffect } from 'react';
+// import { Outlet, useLocation } from 'react-router-dom';
+// import Header from '../components/Header';
+// import Navbar from '../components/Navbar';
+
+// const pageTitles = {
+//   '/': 'Էվոկաբանկ | Գլխավոր',
+//   '/loans': 'Վարկեր | Էվոկաբանկ',
+//   '/hy/loans': 'Վարկեր | Էվոկաբանկ',
+//   '/cards': 'Քարտեր | Էվոկաբանկ',
+//   '/deposits': 'Ավանդներ | Էվոկաբանկ',
+// };
+
+// const MainLayout = () => {
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     const currentTitle = pageTitles[location.pathname] || 'Էվոկաբանկ';
+//     document.title = currentTitle;
+//   }, [location]);
+
+//   return (
+//     <div className="min-h-screen bg-white">
+//       <Header />
+//       <Navbar />
+
+//       <main>
+//         <Outlet />
+//       </main>
+//     </div>
+//   );
+// };
+
+// export default MainLayout;
+
+
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 
-// Այստեղ սահմանում ենք էջերի Title-ները՝ ըստ route path-երի
 const pageTitles = {
   '/': 'Էվոկաբանկ | Գլխավոր',
+  '/loans': 'Վարկեր | Էվոկաբանկ',
   '/hy/loans': 'Վարկեր | Էվոկաբանկ',
-  '/loans': 'Վարկեր | Էվոկաբանկ', // Եթե առանց /hy/-ի էլ եք օգտագործելու
+  '/cards': 'Քարտեր | Էվոկաբանկ',
+  '/hy/cards': 'Քարտեր | Էվոկաբանկ',
+  '/deposits': 'Ավանդներ | Էվոկաբանկ',
+  '/hy/deposits': 'Ավանդներ | Էվոկաբանկ',
+  '/accounts': 'Հաշիվներ | Էվոկաբանկ',
+  '/hy/accounts': 'Հաշիվներ | Էվոկաբանկ',
 };
 
 const MainLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Գտնում ենք տվյալ path-ին համապատասխան title-ը, եթե չկա՝ դնում ենք default title
     const currentTitle = pageTitles[location.pathname] || 'Էվոկաբանկ';
     document.title = currentTitle;
   }, [location]);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Կրկնվող հատվածները */}
       <Header />
       <Navbar />
 
-      {/* Էջի dynamic բովանդակությունը */}
       <main>
         <Outlet />
       </main>
