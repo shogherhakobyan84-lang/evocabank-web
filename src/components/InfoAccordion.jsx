@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 export default function InfoAccordion() {
-  const [openIndex, setOpenIndex] = useState(null);
+  // 0 արժեքը նշանակում է, որ առաջին էլեմենտը (index 0) լռելյայն բաց է
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -130,7 +131,7 @@ export default function InfoAccordion() {
                   </svg>
                 </span>
 
-                {/* Վերնագիրը (առանց hover գույն փոխելու) */}
+                {/* Վերնագիրը */}
                 <span className="text-[18px] sm:text-[20px] font-bold text-[#4a525d] leading-tight">
                   {item.title}
                 </span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ApplySection from '../components/ApplySection';
+import InfoAccordion from '../components/InfoAccordion';
 
 export default function Accounts() {
   const subNavItems = [
@@ -95,6 +96,7 @@ export default function Accounts() {
           </p>
         </div>
           <ApplySection />
+          <InfoAccordion />
       </div>
     </div>
   );

@@ -8,7 +8,11 @@
 //   '/loans': 'Վարկեր | Էվոկաբանկ',
 //   '/hy/loans': 'Վարկեր | Էվոկաբանկ',
 //   '/cards': 'Քարտեր | Էվոկաբանկ',
+//   '/hy/cards': 'Քարտեր | Էվոկաբանկ',
 //   '/deposits': 'Ավանդներ | Էվոկաբանկ',
+//   '/hy/deposits': 'Ավանդներ | Էվոկաբանկ',
+//   '/accounts': 'Հաշիվներ | Էվոկաբանկ',
+//   '/hy/accounts': 'Հաշիվներ | Էվոկաբանկ',
 // };
 
 // const MainLayout = () => {
@@ -33,7 +37,6 @@
 
 // export default MainLayout;
 
-
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
@@ -49,6 +52,8 @@ const pageTitles = {
   '/hy/deposits': 'Ավանդներ | Էվոկաբանկ',
   '/accounts': 'Հաշիվներ | Էվոկաբանկ',
   '/hy/accounts': 'Հաշիվներ | Էվոկաբանկ',
+  '/transfers': 'Փոխանցումներ | Էվոկաբանկ',
+  '/hy/transfers': 'Փոխանցումներ | Էվոկաբանկ',
 };
 
 const MainLayout = () => {
