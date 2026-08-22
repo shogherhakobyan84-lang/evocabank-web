@@ -13,6 +13,12 @@
 //   '/hy/deposits': 'Ավանդներ | Էվոկաբանկ',
 //   '/accounts': 'Հաշիվներ | Էվոկաբանկ',
 //   '/hy/accounts': 'Հաշիվներ | Էվոկաբանկ',
+//   '/transfers': 'Փոխանցումներ | Էվոկաբանկ',
+//   '/hy/transfers': 'Փոխանցումներ | Էվոկաբանկ',
+//   '/securities': 'Արժեթղթեր | Էվոկաբանկ',
+//   '/hy/securities': 'Արժեթղթեր | Էվոկաբանկ',
+//   '/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
+//   '/hy/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
 // };
 
 // const MainLayout = () => {
@@ -39,8 +45,8 @@
 
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
+import Header from './Header';
+import Navbar from './Navbar';
 
 const pageTitles = {
   '/': 'Էվոկաբանկ | Գլխավոր',
@@ -54,6 +60,12 @@ const pageTitles = {
   '/hy/accounts': 'Հաշիվներ | Էվոկաբանկ',
   '/transfers': 'Փոխանցումներ | Էվոկաբանկ',
   '/hy/transfers': 'Փոխանցումներ | Էվոկաբանկ',
+  '/securities': 'Արժեթղթեր | Էվոկաբանկ',
+  '/hy/securities': 'Արժեթղթեր | Էվոկաբանկ',
+  '/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
+  '/hy/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
+  '/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
+  '/hy/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
 };
 
 const MainLayout = () => {

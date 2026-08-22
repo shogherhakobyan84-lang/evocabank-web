@@ -6,6 +6,9 @@
 // import Cards from './pages/Cards';
 // import Deposits from './pages/Deposits';
 // import Accounts from './pages/Accounts';
+// import Transfers from './pages/Transfers';
+// import Securities from './pages/Securities';
+// import EvocaSalary from './pages/EvocaSalary'; 
 
 // function App() {
 //   return (
@@ -30,14 +33,20 @@
 //           {/* Հաշիվներ էջ */}
 //           <Route path="accounts" element={<Accounts />} />
 //           <Route path="hy/accounts" element={<Accounts />} />
-//         </Route>
+
+//           {/* Փոխանցումներ էջ */}
+//           <Route path="transfers" element={<Transfers />} />
+//           <Route path="hy/transfers" element={<Transfers />} />
+
+//           {/* Արժեթղթեր էջ */}
+//           <Route path="securities" element={<Securities />} />
+//           <Route path="hy/securities" element={<Securities />} />import React from 'react';
 //       </Routes>
 //     </BrowserRouter>
 //   );
 // }
 
 // export default App;
-
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -48,6 +57,9 @@ import Cards from './pages/Cards';
 import Deposits from './pages/Deposits';
 import Accounts from './pages/Accounts';
 import Transfers from './pages/Transfers';
+import Securities from './pages/Securities';
+import EvocaSalary from './pages/EvocaSalary';
+import EvocaTouch from './pages/EvocaTouch';
 
 function App() {
   return (
@@ -76,6 +88,18 @@ function App() {
           {/* Փոխանցումներ էջ */}
           <Route path="transfers" element={<Transfers />} />
           <Route path="hy/transfers" element={<Transfers />} />
+
+          {/* Արժեթղթեր էջ */}
+          <Route path="securities" element={<Securities />} />
+          <Route path="hy/securities" element={<Securities />} />
+
+          {/* EvocaSALARY էջ */}
+          <Route path="evoca-salary" element={<EvocaSalary />} />
+          <Route path="hy/evoca-salary" element={<EvocaSalary />} />
+
+          {/* EvocaTOUCH էջ */}
+          <Route path="evoca-touch" element={<EvocaTouch />} />
+          <Route path="hy/evoca-touch" element={<EvocaTouch />} />
         </Route>
       </Routes>
     </BrowserRouter>
