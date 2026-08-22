@@ -46,8 +46,11 @@ export default function Navbar() {
         </div>
 
         <div>
+          {/* ՄԻԱՅՆ այս կոճակն է բացվում նոր թաբում */}
           <Link
             to="/evoca-online"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-[#8c25e8] hover:bg-[#781fd0] text-white font-bold text-sm px-8 py-3 rounded-full transition duration-200 cursor-pointer shadow-md"
           >
             EvocaONLINE
