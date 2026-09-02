@@ -19,7 +19,7 @@ export default function BiometricSection() {
   }, [faces.length]);
 
   return (
-    <section className="w-full bg-white py-12 md:py-16 px-4 sm:px-6 md:px-16 overflow-hidden">
+    <section className="w-full bg-white py-10 sm:py-12 md:py-16 px-4 sm:px-6 md:px-12 overflow-hidden">
       <style>{`
         @keyframes pulseGlow {
           0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(255,255,255,0.7)); }
@@ -47,20 +47,20 @@ export default function BiometricSection() {
         }
       `}</style>
 
-      <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16">
+      <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-16">
         
         {/* Left Side: Biometric Face inside Smooth Triangle */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center relative min-h-[440px] sm:min-h-[520px] md:min-h-[660px]">
+        <div className="w-full lg:w-1/2 flex justify-center items-center relative min-h-[380px] sm:min-h-[480px] md:min-h-[580px] lg:min-h-[660px]">
           
           {/* Background Radial Rings */}
-          <div className="absolute w-[360px] h-[360px] sm:w-[480px] sm:h-[480px] md:w-[620px] md:h-[620px] rounded-full opacity-25 pointer-events-none flex items-center justify-center">
+          <div className="absolute w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] md:w-[560px] md:h-[560px] rounded-full opacity-25 pointer-events-none flex items-center justify-center">
             <div className="w-full h-full border border-dashed border-gray-300 rounded-full" />
             <div className="absolute w-[75%] h-[75%] border border-dashed border-gray-300 rounded-full" />
             <div className="absolute w-[50%] h-[50%] border border-dashed border-gray-300 rounded-full" />
           </div>
 
           {/* Triangle & Face Container */}
-          <div className="relative w-[340px] h-[380px] sm:w-[440px] sm:h-[480px] md:w-[500px] md:h-[550px] lg:w-[560px] lg:h-[600px] flex justify-center items-center">
+          <div className="relative w-[300px] h-[340px] sm:w-[400px] sm:h-[440px] md:w-[480px] md:h-[520px] lg:w-[560px] lg:h-[600px] flex justify-center items-center">
             
             {/* Rounded Purple Triangle */}
             <svg 
@@ -84,7 +84,7 @@ export default function BiometricSection() {
                   key={index}
                   src={imgUrl}
                   alt={`Biometric Face ${index + 1}`}
-                  className={`absolute bottom-[35px] sm:bottom-[42px] md:bottom-[48px] lg:bottom-[52px] h-[78%] sm:h-[82%] md:h-[85%] object-contain transition-all duration-1000 ease-in-out ${
+                  className={`absolute bottom-[30px] sm:bottom-[40px] md:bottom-[48px] h-[74%] sm:h-[80%] md:h-[85%] object-contain transition-all duration-1000 ease-in-out ${
                     index === currentFace ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
                 />
@@ -175,10 +175,10 @@ export default function BiometricSection() {
 
         {/* Right Side: Text, Official QR & Button */}
         <div className="lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left w-full px-2">
-          <h2 className="text-xl sm:text-2xl md:text-[34px] lg:text-[38px] font-medium text-[#222222] font-['Montserratarm-Medium',Helvetica,Arial,sans-serif] leading-snug md:leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-[32px] lg:text-[38px] font-medium text-[#222222] leading-snug md:leading-tight">
             Դարձիր Evocabank-ի հաճախորդ բիոմետրիկ նույնականացմամբ
           </h2>
-          <p className="text-gray-600 text-xs sm:text-sm md:text-[17px] lg:text-[18px] font-['Montserratarm-Medium',Helvetica,Arial,sans-serif] leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="text-gray-600 text-xs sm:text-sm md:text-[16px] lg:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0">
             Սկանավորիր QR կոդը, ներբեռնիր EvocaTOUCH հարմարավետ հավելվածը, ստեղծիր քո հաշիվը և ստացիր քարտ
           </p>
 
@@ -188,7 +188,7 @@ export default function BiometricSection() {
               <img
                 src="https://www.evoca.am/img/biometric-section-QR-Code.png"
                 alt="QR Code"
-                className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
+                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain"
               />
             </div>
 
@@ -196,7 +196,7 @@ export default function BiometricSection() {
             <div className="w-full sm:w-auto">
               <Link
                 to="/evocatouch"
-                className="bg-[rgb(100,0,220)] hover:bg-[rgb(85,0,190)] text-white font-semibold px-8 py-3.5 rounded-full shadow-md transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base w-full sm:w-auto"
+                className="bg-[rgb(100,0,220)] hover:bg-[rgb(85,0,190)] text-white font-semibold px-8 py-3.5 rounded-full shadow-md transition-all duration-300 inline-flex items-center justify-center text-xs sm:text-sm md:text-base w-full sm:w-auto"
               >
                 Իմանալ ավելին
               </Link>

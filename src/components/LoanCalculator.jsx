@@ -55,19 +55,19 @@ export default function LoanCalculator() {
   const netInterest = Math.round(totalInterest * 0.9);
 
   return (
-    <div className="w-full bg-[#f8f9fb] py-12 font-sans flex justify-center">
-      <div className="w-full max-w-[1140px] px-4 md:px-6">
+    <div className="w-full bg-[#f8f9fb] py-8 sm:py-12 font-sans flex justify-center">
+      <div className="w-full max-w-[1140px] px-4 sm:px-6">
         
         {/* Title */}
-        <h2 className="text-3xl md:text-[38px] font-extrabold text-[#1f242e] mb-8 tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-[38px] font-extrabold text-[#1f242e] mb-6 sm:mb-8 tracking-tight">
           Հաշվիչներ
         </h2>
 
         {/* Tab-եր */}
-        <div className="flex gap-2 pl-3">
+        <div className="flex gap-2 pl-2 sm:pl-3">
           <button
             onClick={() => setActiveTab('loan')}
-            className={`px-8 py-3.5 rounded-t-2xl text-sm font-bold transition-all ${
+            className={`px-6 sm:px-8 py-3 sm:py-3.5 rounded-t-2xl text-xs sm:text-sm font-bold transition-all ${
               activeTab === 'loan'
                 ? 'bg-white text-[#1f242e]'
                 : 'bg-transparent text-[#a0a6b5] hover:text-gray-600'
@@ -77,7 +77,7 @@ export default function LoanCalculator() {
           </button>
           <button
             onClick={() => setActiveTab('deposit')}
-            className={`px-8 py-3.5 rounded-t-2xl text-sm font-bold transition-all ${
+            className={`px-6 sm:px-8 py-3 sm:py-3.5 rounded-t-2xl text-xs sm:text-sm font-bold transition-all ${
               activeTab === 'deposit'
                 ? 'bg-white text-[#1f242e]'
                 : 'bg-transparent text-[#a0a6b5] hover:text-gray-600'
@@ -88,17 +88,17 @@ export default function LoanCalculator() {
         </div>
 
         {/* Main Card */}
-        <div className="bg-white rounded-2xl md:rounded-[28px] p-8 md:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-gray-100">
+        <div className="bg-white rounded-2xl md:rounded-[28px] p-5 sm:p-8 md:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-gray-100">
           
           {/* ==================== 1. ՎԱՐԿԻ ՀԱՇՎԻՉ ==================== */}
           {activeTab === 'loan' && (
-            <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-7">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 sm:gap-y-7">
 
                 {/* Վարկի գումար */}
                 <div>
-                  <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-6 py-3.5 flex justify-between items-center overflow-hidden">
-                    <span className="text-[#64748b] text-sm font-medium">
+                  <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-4 sm:px-6 py-3 sm:py-3.5 flex justify-between items-center overflow-hidden">
+                    <span className="text-[#64748b] text-xs sm:text-sm font-medium">
                       Վարկի գումար
                     </span>
                     <input
@@ -108,7 +108,7 @@ export default function LoanCalculator() {
                         const val = Number(e.target.value.replace(/\D/g, ''));
                         setAmount(val);
                       }}
-                      className="text-right font-bold text-xl text-[#1f242e] outline-none w-40 bg-transparent"
+                      className="text-right font-bold text-lg sm:text-xl text-[#1f242e] outline-none w-32 sm:w-40 bg-transparent"
                     />
                     <div
                       className="absolute bottom-0 left-0 h-[2.5px] bg-[#6c00ff] transition-all"
@@ -131,7 +131,7 @@ export default function LoanCalculator() {
                       className="absolute top-0 left-0 w-full opacity-0 cursor-pointer h-4"
                     />
                   </div>
-                  <div className="flex justify-between text-xs text-[#a0a6b5] font-normal px-0.5">
+                  <div className="flex justify-between text-[11px] sm:text-xs text-[#a0a6b5] font-normal px-0.5">
                     <span>0</span>
                     <span>50000000</span>
                   </div>
@@ -139,8 +139,8 @@ export default function LoanCalculator() {
 
                 {/* Ժամկետ */}
                 <div>
-                  <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-6 py-3.5 flex justify-between items-center overflow-hidden">
-                    <span className="text-[#64748b] text-sm font-medium">
+                  <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-4 sm:px-6 py-3 sm:py-3.5 flex justify-between items-center overflow-hidden">
+                    <span className="text-[#64748b] text-xs sm:text-sm font-medium">
                       Ժամկետ
                     </span>
                     <div className="flex items-center gap-1.5">
@@ -148,9 +148,9 @@ export default function LoanCalculator() {
                         type="number"
                         value={term}
                         onChange={(e) => setTerm(Number(e.target.value))}
-                        className="text-right font-bold text-xl text-[#1f242e] outline-none w-14 bg-transparent"
+                        className="text-right font-bold text-lg sm:text-xl text-[#1f242e] outline-none w-14 bg-transparent"
                       />
-                      <span className="font-bold text-xl text-[#1f242e]">ամիս</span>
+                      <span className="font-bold text-lg sm:text-xl text-[#1f242e]">ամիս</span>
                     </div>
                     <div
                       className="absolute bottom-0 left-0 h-[2.5px] bg-[#6c00ff] transition-all"
@@ -173,7 +173,7 @@ export default function LoanCalculator() {
                       className="absolute top-0 left-0 w-full opacity-0 cursor-pointer h-4"
                     />
                   </div>
-                  <div className="flex justify-between text-xs text-[#a0a6b5] font-normal px-0.5">
+                  <div className="flex justify-between text-[11px] sm:text-xs text-[#a0a6b5] font-normal px-0.5">
                     <span>1 ամիս</span>
                     <span>1200 ամիս</span>
                   </div>
@@ -181,8 +181,8 @@ export default function LoanCalculator() {
 
                 {/* Տարեկան տոկոսադրույք */}
                 <div>
-                  <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-6 py-3.5 flex justify-between items-center overflow-hidden">
-                    <span className="text-[#64748b] text-sm font-medium">
+                  <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-4 sm:px-6 py-3 sm:py-3.5 flex justify-between items-center overflow-hidden">
+                    <span className="text-[#64748b] text-xs sm:text-sm font-medium">
                       Տարեկան տոկոսադրույք
                     </span>
                     <div className="flex items-center gap-1">
@@ -190,9 +190,9 @@ export default function LoanCalculator() {
                         type="number"
                         value={rate}
                         onChange={(e) => setRate(Number(e.target.value))}
-                        className="text-right font-bold text-xl text-[#1f242e] outline-none w-12 bg-transparent"
+                        className="text-right font-bold text-lg sm:text-xl text-[#1f242e] outline-none w-12 bg-transparent"
                       />
-                      <span className="font-bold text-xl text-[#1f242e]">%</span>
+                      <span className="font-bold text-lg sm:text-xl text-[#1f242e]">%</span>
                     </div>
                     <div
                       className="absolute bottom-0 left-0 h-[2.5px] bg-[#6c00ff] transition-all"
@@ -215,7 +215,7 @@ export default function LoanCalculator() {
                       className="absolute top-0 left-0 w-full opacity-0 cursor-pointer h-4"
                     />
                   </div>
-                  <div className="flex justify-between text-xs text-[#a0a6b5] font-normal px-0.5">
+                  <div className="flex justify-between text-[11px] sm:text-xs text-[#a0a6b5] font-normal px-0.5">
                     <span>1 %</span>
                     <span>36 %</span>
                   </div>
@@ -226,7 +226,7 @@ export default function LoanCalculator() {
                   <span className="text-xs text-[#a0a6b5] font-medium mb-3">
                     Մարման ձև
                   </span>
-                  <div className="flex items-center gap-8">
+                  <div className="flex flex-wrap items-center gap-6 sm:gap-8">
                     <label className="flex items-center gap-3 cursor-pointer">
                       <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                         repaymentType === 'differentiating' ? 'border-[#6c00ff]' : 'border-gray-300'
@@ -242,7 +242,7 @@ export default function LoanCalculator() {
                         onChange={() => setRepaymentType('differentiating')}
                         className="hidden"
                       />
-                      <span className="font-bold text-[#1f242e] text-sm">
+                      <span className="font-bold text-[#1f242e] text-xs sm:text-sm">
                         Զսպանակաձև
                       </span>
                     </label>
@@ -262,7 +262,7 @@ export default function LoanCalculator() {
                         onChange={() => setRepaymentType('annuity')}
                         className="hidden"
                       />
-                      <span className="font-medium text-[#1f242e] text-sm">
+                      <span className="font-medium text-[#1f242e] text-xs sm:text-sm">
                         Անուիտետ
                       </span>
                     </label>
@@ -272,13 +272,13 @@ export default function LoanCalculator() {
               </div>
 
               {/* Bottom disclaimer + button */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-6 mt-4">
-                <p className="text-xs text-[#a0a6b5] max-w-[550px] leading-relaxed">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6 pt-4 sm:pt-6 mt-4">
+                <p className="text-[11px] sm:text-xs text-[#a0a6b5] max-w-[550px] leading-relaxed text-center sm:text-left">
                   Բոլոր հաշվարկները կրում են մոտավոր բնույթ և չեն հանդիսանում հրապարակային առաջարկ:
                 </p>
                 <button
                   onClick={calculateLoan}
-                  className="w-full sm:w-auto bg-[#6c00ff] hover:bg-[#5800d4] text-white font-bold text-base px-10 py-3.5 rounded-full transition-all shadow-md active:scale-95"
+                  className="w-full sm:w-auto bg-[#6c00ff] hover:bg-[#5800d4] text-white font-bold text-sm sm:text-base px-10 py-3 sm:py-3.5 rounded-full transition-all shadow-md active:scale-95 cursor-pointer"
                 >
                   Հաշվել
                 </button>
@@ -286,16 +286,16 @@ export default function LoanCalculator() {
 
               {/* Result display */}
               {loanResult && (
-                <div className="mt-6 p-5 bg-[#f5efff] rounded-2xl flex flex-col sm:flex-row justify-around items-center gap-4 border border-purple-100">
+                <div className="mt-6 p-4 sm:p-5 bg-[#f5efff] rounded-2xl flex flex-col sm:flex-row justify-around items-center gap-4 border border-purple-100 text-center sm:text-left">
                   <div>
                     <span className="text-xs text-gray-500 block">Ամսական վճար.</span>
-                    <span className="text-2xl font-bold text-[#6c00ff]">
+                    <span className="text-xl sm:text-2xl font-bold text-[#6c00ff]">
                       {loanResult.monthlyPayment.toLocaleString()} ֏
                     </span>
                   </div>
                   <div>
                     <span className="text-xs text-gray-500 block">Ընդհանուր վճար.</span>
-                    <span className="text-2xl font-bold text-[#1f242e]">
+                    <span className="text-xl sm:text-2xl font-bold text-[#1f242e]">
                       {loanResult.totalPayment.toLocaleString()} ֏
                     </span>
                   </div>
@@ -306,16 +306,16 @@ export default function LoanCalculator() {
 
           {/* ==================== 2. ԱՎԱՆԴԻ ՀԱՇՎԻՉ ==================== */}
           {activeTab === 'deposit' && (
-            <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-7 items-start">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 sm:gap-y-7 items-start">
                 
                 {/* Ձախ Կողմ - Inputs */}
-                <div className="space-y-6">
+                <div className="space-y-5 sm:space-y-6">
 
                   {/* 1. Ներդրվող գումար */}
                   <div>
-                    <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-6 py-3.5 flex justify-between items-center overflow-hidden">
-                      <span className="text-[#64748b] text-sm font-medium">
+                    <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-4 sm:px-6 py-3 sm:py-3.5 flex justify-between items-center overflow-hidden">
+                      <span className="text-[#64748b] text-xs sm:text-sm font-medium">
                         Ներդրվող գումար
                       </span>
                       <input
@@ -325,7 +325,7 @@ export default function LoanCalculator() {
                           const val = Number(e.target.value.replace(/\D/g, ''));
                           setDepAmount(val);
                         }}
-                        className="text-right font-bold text-xl text-[#1f242e] outline-none w-40 bg-transparent"
+                        className="text-right font-bold text-lg sm:text-xl text-[#1f242e] outline-none w-32 sm:w-40 bg-transparent"
                       />
                       <div
                         className="absolute bottom-0 left-0 h-[2.5px] bg-[#6c00ff] transition-all"
@@ -348,7 +348,7 @@ export default function LoanCalculator() {
                         className="absolute top-0 left-0 w-full opacity-0 cursor-pointer h-4"
                       />
                     </div>
-                    <div className="flex justify-between text-xs text-[#a0a6b5] font-normal px-0.5">
+                    <div className="flex justify-between text-[11px] sm:text-xs text-[#a0a6b5] font-normal px-0.5">
                       <span>0</span>
                       <span>50000000</span>
                     </div>
@@ -356,8 +356,8 @@ export default function LoanCalculator() {
 
                   {/* 2. Տարեկան տոկոսադրույք */}
                   <div>
-                    <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-6 py-3.5 flex justify-between items-center overflow-hidden">
-                      <span className="text-[#64748b] text-sm font-medium">
+                    <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-4 sm:px-6 py-3 sm:py-3.5 flex justify-between items-center overflow-hidden">
+                      <span className="text-[#64748b] text-xs sm:text-sm font-medium">
                         Տարեկան տոկոսադրույք
                       </span>
                       <div className="flex items-center gap-1">
@@ -365,9 +365,9 @@ export default function LoanCalculator() {
                           type="number"
                           value={depRate}
                           onChange={(e) => setDepRate(Number(e.target.value))}
-                          className="text-right font-bold text-xl text-[#1f242e] outline-none w-12 bg-transparent"
+                          className="text-right font-bold text-lg sm:text-xl text-[#1f242e] outline-none w-12 bg-transparent"
                         />
-                        <span className="font-bold text-xl text-[#1f242e]">%</span>
+                        <span className="font-bold text-lg sm:text-xl text-[#1f242e]">%</span>
                       </div>
                       <div
                         className="absolute bottom-0 left-0 h-[2.5px] bg-[#6c00ff] transition-all"
@@ -390,7 +390,7 @@ export default function LoanCalculator() {
                         className="absolute top-0 left-0 w-full opacity-0 cursor-pointer h-4"
                       />
                     </div>
-                    <div className="flex justify-between text-xs text-[#a0a6b5] font-normal px-0.5">
+                    <div className="flex justify-between text-[11px] sm:text-xs text-[#a0a6b5] font-normal px-0.5">
                       <span>1 %</span>
                       <span>36 %</span>
                     </div>
@@ -398,8 +398,8 @@ export default function LoanCalculator() {
 
                   {/* 3. Ավանդի ժամկետ */}
                   <div>
-                    <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-6 py-3.5 flex justify-between items-center overflow-hidden">
-                      <span className="text-[#64748b] text-sm font-medium">
+                    <div className="relative bg-white border border-[#e5e7eb] rounded-2xl px-4 sm:px-6 py-3 sm:py-3.5 flex justify-between items-center overflow-hidden">
+                      <span className="text-[#64748b] text-xs sm:text-sm font-medium">
                         Ավանդի ժամկետ
                       </span>
                       <div className="flex items-center gap-1.5">
@@ -407,9 +407,9 @@ export default function LoanCalculator() {
                           type="number"
                           value={depTerm}
                           onChange={(e) => setDepTerm(Number(e.target.value))}
-                          className="text-right font-bold text-xl text-[#1f242e] outline-none w-16 bg-transparent"
+                          className="text-right font-bold text-lg sm:text-xl text-[#1f242e] outline-none w-16 bg-transparent"
                         />
-                        <span className="font-bold text-xl text-[#1f242e]">օր</span>
+                        <span className="font-bold text-lg sm:text-xl text-[#1f242e]">օր</span>
                       </div>
                       <div
                         className="absolute bottom-0 left-0 h-[2.5px] bg-[#6c00ff] transition-all"
@@ -432,7 +432,7 @@ export default function LoanCalculator() {
                         className="absolute top-0 left-0 w-full opacity-0 cursor-pointer h-4"
                       />
                     </div>
-                    <div className="flex justify-between text-xs text-[#a0a6b5] font-normal px-0.5">
+                    <div className="flex justify-between text-[11px] sm:text-xs text-[#a0a6b5] font-normal px-0.5">
                       <span>91 օր</span>
                       <span>1095 օր</span>
                     </div>
@@ -441,31 +441,31 @@ export default function LoanCalculator() {
                 </div>
 
                 {/* Աջ Կողմ - Results Panel */}
-                <div className="space-y-6 pt-1">
+                <div className="space-y-5 sm:space-y-6 pt-2 md:pt-1">
                   
-                  <div className="flex justify-between items-start pb-4 border-b border-gray-100">
+                  <div className="flex justify-between items-start pb-4 border-b border-gray-100 gap-4">
                     <span className="text-xs text-[#64748b] max-w-[280px] leading-relaxed">
                       Օրական կտրվածքով հաշվարկվող տոկոսագումար *
                     </span>
-                    <span className="text-xl font-bold text-[#1f242e]">
+                    <span className="text-lg sm:text-xl font-bold text-[#1f242e] whitespace-nowrap">
                       {dailyInterest.toLocaleString()}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start pb-4 border-b border-gray-100">
+                  <div className="flex justify-between items-start pb-4 border-b border-gray-100 gap-4">
                     <span className="text-xs text-[#64748b] max-w-[280px] leading-relaxed">
                       Ավանդային պայմանագրի գործողության ընթացքում հաշվարկվող ընդհանուր տոկոսային եկամուտ
                     </span>
-                    <span className="text-xl font-bold text-[#1f242e]">
+                    <span className="text-lg sm:text-xl font-bold text-[#1f242e] whitespace-nowrap">
                       {totalInterest.toLocaleString()}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start pb-4 border-b border-gray-100">
+                  <div className="flex justify-between items-start pb-4 border-b border-gray-100 gap-4">
                     <span className="text-xs text-[#64748b] max-w-[280px] leading-relaxed">
                       Ավանդային պայմանագրի գործողության ընթացքում ավանդատուին փաստացի վճարվող զուտ տոկոսային եկամուտ
                     </span>
-                    <span className="text-xl font-bold text-[#1f242e]">
+                    <span className="text-lg sm:text-xl font-bold text-[#1f242e] whitespace-nowrap">
                       {netInterest.toLocaleString()}
                     </span>
                   </div>
@@ -485,7 +485,7 @@ export default function LoanCalculator() {
 
               {/* Disclaimer */}
               <div className="pt-2">
-                <p className="text-xs text-[#a0a6b5] leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-[#a0a6b5] leading-relaxed text-center sm:text-left">
                   Բոլոր հաշվարկները կրում են մոտավոր բնույթ և չեն հանդիսանում հրապարակային առաջարկ:
                 </p>
               </div>

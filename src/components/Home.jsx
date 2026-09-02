@@ -4,6 +4,7 @@ import BiometricSection from '../components/BiometricSection';
 import BestSection from '../components/BestSection';
 import CardsShowcase from '../components/CardsShowcase';
 import LoanCalculator from '../components/LoanCalculator';
+import EvocaPartners from '../components/EvocaPartners';
 import EvocaLatestNews from '../components/EvocaLatestNews';
 import CurrencyAndMapSection from '../components/CurrencyAndMapSection';
 
@@ -15,6 +16,7 @@ const Home = () => {
       <BestSection />
       <CardsShowcase />
       <LoanCalculator />
+      <EvocaPartners /> 
       <EvocaLatestNews />         
       <CurrencyAndMapSection />   
     </>

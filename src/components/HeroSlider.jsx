@@ -98,24 +98,24 @@ export default function HeroSlider() {
   return (
     <div
       style={{ backgroundColor: current.bgColor }}
-      className="w-full rounded-bl-[100px] lg:rounded-bl-[150px] transition-colors duration-500 overflow-hidden relative"
+      className="w-full rounded-bl-[60px] sm:rounded-bl-[100px] lg:rounded-bl-[150px] transition-colors duration-500 overflow-hidden relative"
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 min-h-[460px] md:min-h-[480px] flex flex-col justify-between py-8 md:py-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 min-h-[420px] sm:min-h-[460px] md:min-h-[480px] flex flex-col justify-between py-6 sm:py-8 md:py-10">
         
         {/* Main Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between my-auto gap-6 lg:gap-0">
           
           {/* Left Text Box */}
-          <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 z-10 pr-0 lg:pr-6 text-center lg:text-left">
+          <div className="w-full lg:w-1/2 space-y-3 sm:space-y-4 md:space-y-6 z-10 pr-0 lg:pr-6 text-center lg:text-left">
             <h1
-              className={`text-2xl sm:text-3xl md:text-5xl font-black leading-[1.25] whitespace-pre-line tracking-tight transition-colors duration-300 ${
+              className={`text-xl sm:text-3xl md:text-5xl font-black leading-[1.2] sm:leading-[1.25] whitespace-pre-line tracking-tight transition-colors duration-300 ${
                 current.isDark ? 'text-white' : 'text-[#212121]'
               }`}
             >
               {current.title}
             </h1>
             <p
-              className={`text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300 ${
+              className={`text-xs sm:text-base md:text-lg font-medium leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300 ${
                 current.isDark ? 'text-gray-300' : 'text-[#555555]'
               }`}
             >
@@ -123,7 +123,7 @@ export default function HeroSlider() {
             </p>
             <div className="pt-2">
               <button
-                className={`font-bold px-8 py-3.5 rounded-full shadow-md transition duration-200 cursor-pointer text-sm ${
+                className={`font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-md transition duration-200 cursor-pointer text-xs sm:text-sm ${
                   current.isDark
                     ? 'bg-white text-[#8c25e8] hover:bg-gray-100'
                     : 'bg-[#8c25e8] text-white hover:bg-[#781fd0]'
@@ -135,22 +135,22 @@ export default function HeroSlider() {
           </div>
 
           {/* Right Image Container - Fully Integrated */}
-          <div className="w-full lg:w-1/2 mt-4 lg:mt-0 flex justify-center items-center z-10">
+          <div className="w-full lg:w-1/2 mt-2 lg:mt-0 flex justify-center items-center z-10">
             <img
               key={current.id}
               src={current.image}
               alt={current.title}
-              className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[560px] h-auto max-h-[260px] sm:max-h-[340px] lg:max-h-[460px] object-contain transition-all duration-500"
+              className="w-full max-w-[260px] sm:max-w-[420px] lg:max-w-[560px] h-auto max-h-[220px] sm:max-h-[340px] lg:max-h-[460px] object-contain transition-all duration-500"
             />
           </div>
 
         </div>
 
         {/* Navigation Dots & Arrows */}
-        <div className="flex items-center justify-center space-x-3 z-20 pt-6">
+        <div className="flex items-center justify-center space-x-2 sm:space-x-3 z-20 pt-4 sm:pt-6">
           <button
             onClick={prevSlide}
-            className={`transition text-xl font-bold px-2 cursor-pointer ${
+            className={`transition text-lg sm:text-xl font-bold px-2 cursor-pointer ${
               current.isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-[#8c25e8]'
             }`}
           >
@@ -161,17 +161,17 @@ export default function HeroSlider() {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+              className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                 currentIndex === idx
-                  ? `w-7 ${current.isDark ? 'bg-white' : 'bg-[#8c25e8]'}`
-                  : `w-2.5 ${current.isDark ? 'bg-white/40 hover:bg-white/70' : 'bg-gray-300 hover:bg-gray-400'}`
+                  ? `w-5 sm:w-7 ${current.isDark ? 'bg-white' : 'bg-[#8c25e8]'}`
+                  : `w-2 sm:w-2.5 ${current.isDark ? 'bg-white/40 hover:bg-white/70' : 'bg-gray-300 hover:bg-gray-400'}`
               }`}
             />
           ))}
 
           <button
             onClick={nextSlide}
-            className={`transition text-xl font-bold px-2 cursor-pointer ${
+            className={`transition text-lg sm:text-xl font-bold px-2 cursor-pointer ${
               current.isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-[#8c25e8]'
             }`}
           >
