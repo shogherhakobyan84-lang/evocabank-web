@@ -100,22 +100,22 @@ export default function HeroSlider() {
       style={{ backgroundColor: current.bgColor }}
       className="w-full rounded-bl-[100px] lg:rounded-bl-[150px] transition-colors duration-500 overflow-hidden relative"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 min-h-[480px] flex flex-col justify-between py-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 min-h-[460px] md:min-h-[480px] flex flex-col justify-between py-8 md:py-10">
         
         {/* Main Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between my-auto">
+        <div className="flex flex-col lg:flex-row items-center justify-between my-auto gap-6 lg:gap-0">
           
           {/* Left Text Box */}
-          <div className="w-full md:w-1/2 space-y-6 z-10 pr-0 md:pr-6">
+          <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 z-10 pr-0 lg:pr-6 text-center lg:text-left">
             <h1
-              className={`text-3xl md:text-5xl font-black leading-[1.25] whitespace-pre-line tracking-tight transition-colors duration-300 ${
+              className={`text-2xl sm:text-3xl md:text-5xl font-black leading-[1.25] whitespace-pre-line tracking-tight transition-colors duration-300 ${
                 current.isDark ? 'text-white' : 'text-[#212121]'
               }`}
             >
               {current.title}
             </h1>
             <p
-              className={`text-base md:text-lg font-medium leading-relaxed max-w-lg transition-colors duration-300 ${
+              className={`text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300 ${
                 current.isDark ? 'text-gray-300' : 'text-[#555555]'
               }`}
             >
@@ -135,12 +135,12 @@ export default function HeroSlider() {
           </div>
 
           {/* Right Image Container - Fully Integrated */}
-          <div className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end items-center z-10">
+          <div className="w-full lg:w-1/2 mt-4 lg:mt-0 flex justify-center items-center z-10">
             <img
               key={current.id}
               src={current.image}
               alt={current.title}
-              className="w-full max-w-[560px] h-auto max-h-[460px] object-contain transition-all duration-500"
+              className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[560px] h-auto max-h-[260px] sm:max-h-[340px] lg:max-h-[460px] object-contain transition-all duration-500"
             />
           </div>
 
