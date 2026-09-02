@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function BiometricSection() {
   const faces = [
@@ -18,7 +19,7 @@ export default function BiometricSection() {
   }, [faces.length]);
 
   return (
-    <section className="w-full bg-white py-16 px-6 md:px-16 overflow-hidden">
+    <section className="w-full bg-white py-12 md:py-16 px-4 sm:px-6 md:px-16 overflow-hidden">
       <style>{`
         @keyframes pulseGlow {
           0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(255,255,255,0.7)); }
@@ -46,20 +47,20 @@ export default function BiometricSection() {
         }
       `}</style>
 
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
+      <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16">
         
         {/* Left Side: Biometric Face inside Smooth Triangle */}
-        <div className="w-full md:w-1/2 flex justify-center items-center relative min-h-[580px] md:min-h-[660px]">
+        <div className="w-full lg:w-1/2 flex justify-center items-center relative min-h-[440px] sm:min-h-[520px] md:min-h-[660px]">
           
           {/* Background Radial Rings */}
-          <div className="absolute w-[620px] h-[620px] rounded-full opacity-25 pointer-events-none flex items-center justify-center">
+          <div className="absolute w-[360px] h-[360px] sm:w-[480px] sm:h-[480px] md:w-[620px] md:h-[620px] rounded-full opacity-25 pointer-events-none flex items-center justify-center">
             <div className="w-full h-full border border-dashed border-gray-300 rounded-full" />
-            <div className="absolute w-[460px] h-[460px] border border-dashed border-gray-300 rounded-full" />
-            <div className="absolute w-[320px] h-[320px] border border-dashed border-gray-300 rounded-full" />
+            <div className="absolute w-[75%] h-[75%] border border-dashed border-gray-300 rounded-full" />
+            <div className="absolute w-[50%] h-[50%] border border-dashed border-gray-300 rounded-full" />
           </div>
 
           {/* Triangle & Face Container */}
-          <div className="relative w-[500px] h-[550px] sm:w-[560px] sm:h-[600px] flex justify-center items-center">
+          <div className="relative w-[340px] h-[380px] sm:w-[440px] sm:h-[480px] md:w-[500px] md:h-[550px] lg:w-[560px] lg:h-[600px] flex justify-center items-center">
             
             {/* Rounded Purple Triangle */}
             <svg 
@@ -76,87 +77,93 @@ export default function BiometricSection() {
               />
             </svg>
 
-            {/* Perfect Middle Height (bottom-[50px]) */}
+            {/* Face Images Container */}
             <div className="relative z-10 w-full h-full flex justify-center items-center overflow-hidden">
               {faces.map((imgUrl, index) => (
                 <img
                   key={index}
                   src={imgUrl}
                   alt={`Biometric Face ${index + 1}`}
-                  className={`absolute bottom-[48px] sm:bottom-[52px] h-[85%] object-contain transition-all duration-1000 ease-in-out ${
+                  className={`absolute bottom-[35px] sm:bottom-[42px] md:bottom-[48px] lg:bottom-[52px] h-[78%] sm:h-[82%] md:h-[85%] object-contain transition-all duration-1000 ease-in-out ${
                     index === currentFace ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
                 />
               ))}
 
-              {/* Face Mesh Overlay precisely centered */}
+              {/* Full Face Triangular Mesh Overlay */}
               <svg 
-                className="absolute z-20 w-[56.5%] h-[56.5%] top-[15%] left-[21.8%] pointer-events-none"
+                className="absolute z-20 w-[68%] h-[68%] top-[14%] left-[16%] pointer-events-none"
                 viewBox="0 0 300 360"
                 fill="none"
               >
                 <g className="mesh-glow">
-                  {/* Outer Contour Mesh Lines */}
-                  <path 
-                    d="M 150,50 L 105,75 L 75,120 L 70,175 L 80,230 L 110,270 L 150,300 L 190,270 L 220,230 L 230,175 L 225,120 L 195,75 Z" 
-                    stroke="white" 
-                    strokeWidth="1.5" 
-                    strokeOpacity="0.9"
-                  />
+                  {/* Outer Contour */}
+                  <path d="M 150,45 L 100,70 L 70,115 L 60,165 L 70,225 L 105,275 L 150,310 L 195,275 L 230,225 L 240,165 L 230,115 L 200,70 Z" stroke="white" strokeWidth="1.2" strokeOpacity="0.85" />
 
-                  {/* Forehead & Eyebrows */}
-                  <path d="M 150,50 L 150,115" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 105,75 L 150,115 L 195,75" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 105,75 L 115,135 L 150,115 L 185,135 L 195,75" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
+                  {/* Forehead & Upper Triangles */}
+                  <path d="M 150,45 L 150,105 L 100,70 M 150,45 L 150,105 L 200,70" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 100,70 L 115,115 L 150,105 L 185,115 L 200,70" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 70,115 L 115,115 L 105,155 L 60,165 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 230,115 L 185,115 L 195,155 L 240,165 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
 
-                  {/* Eyes & Cheeks */}
-                  <path d="M 75,120 L 115,135 L 110,170 L 70,175 Z" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 225,120 L 185,135 L 190,170 L 230,175 Z" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
+                  {/* Eye Sockets & Brows */}
+                  <path d="M 115,115 L 150,135 L 185,115" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 115,115 L 105,155 L 135,160 L 150,135 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 185,115 L 195,155 L 165,160 L 150,135 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
 
-                  {/* Nose Bridge & Tip */}
-                  <path d="M 150,115 L 135,170 L 150,200 L 165,170 Z" stroke="white" strokeWidth="1.4" strokeOpacity="0.95" />
-                  <path d="M 115,135 L 135,170 M 185,135 L 165,170" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
+                  {/* Nose Structure */}
+                  <path d="M 150,135 L 135,160 L 150,205 L 165,160 Z" stroke="white" strokeWidth="1.2" strokeOpacity="0.85" />
+                  <path d="M 105,155 L 70,165 L 90,210 L 135,160 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 195,155 L 240,165 L 210,210 L 165,160 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
 
-                  {/* Mouth */}
-                  <path d="M 110,170 L 135,170 L 150,200 L 165,170 L 190,170" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 110,170 L 125,230 L 150,220 L 175,230 L 190,170" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 150,200 L 150,250 L 125,230 M 150,250 L 175,230" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
+                  {/* Cheeks & Mouth Area */}
+                  <path d="M 135,160 L 150,205 L 120,225 L 90,210 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 165,160 L 150,205 L 180,225 L 210,210 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 120,225 L 150,205 L 180,225 L 150,250 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 90,210 L 70,225 L 115,260 L 120,225 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 210,210 L 230,225 L 185,260 L 180,225 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
 
-                  {/* Chin Geometry */}
-                  <path d="M 80,230 L 125,230 L 150,270 L 175,230 L 220,230" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 110,270 L 150,300 L 190,270" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
-                  <path d="M 150,250 L 150,300" stroke="white" strokeWidth="1.2" strokeOpacity="0.8" />
+                  {/* Chin & Jaw Triangles */}
+                  <path d="M 120,225 L 115,260 L 150,250 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 180,225 L 185,260 L 150,250 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 115,260 L 150,310 L 150,250 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 185,260 L 150,310 L 150,250 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 70,225 L 105,275 L 115,260 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 230,225 L 185,275 L 185,260 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 105,275 L 150,310 L 115,260 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
+                  <path d="M 185,275 L 150,310 L 185,260 Z" stroke="white" strokeWidth="1" strokeOpacity="0.7" />
 
                   {/* Animated Light Flow Lines */}
                   <path 
-                    d="M 150,50 L 105,75 L 75,120 L 115,135 L 135,170 L 150,200 L 150,250 L 150,300" 
+                    d="M 150,45 L 150,105 L 150,135 L 150,205 L 150,250 L 150,310" 
                     stroke="white" 
                     strokeWidth="2" 
                     className="mesh-line-scan"
                   />
                   <path 
-                    d="M 150,50 L 195,75 L 225,120 L 185,135 L 165,170 L 150,200" 
+                    d="M 70,115 L 115,115 L 150,135 L 185,115 L 230,115" 
                     stroke="white" 
-                    strokeWidth="2" 
+                    strokeWidth="1.5" 
                     className="mesh-line-scan"
                     style={{ animationDelay: '1.5s' }}
                   />
 
-                  {/* Key Facial Nodes */}
+                  {/* All Intersection Nodes / Dots */}
                   {[
-                    [150,50],[105,75],[195,75],[75,120],[225,120],[115,135],[185,135],
-                    [150,115],[70,175],[230,175],[110,170],[190,170],[135,170],[165,170],
-                    [150,200],[80,230],[220,230],[125,230],[175,230],[150,220],[150,250],
-                    [110,270],[190,270],[150,300]
+                    [150,45], [100,70], [200,70], [150,105], [70,115], [115,115], 
+                    [185,115], [230,115], [150,135], [60,165], [105,155], [135,160], 
+                    [165,160], [195,155], [240,165], [150,205], [90,210], [210,210], 
+                    [70,225], [120,225], [180,225], [230,225], [150,250], [105,275], 
+                    [115,260], [185,260], [185,275], [150,310]
                   ].map(([cx, cy], i) => (
                     <circle 
                       key={i} 
                       cx={cx} 
                       cy={cy} 
-                      r="2.5" 
+                      r="2" 
                       fill="white" 
                       className="mesh-dot-pulse" 
-                      style={{ animationDelay: `${(i % 5) * 0.4}s` }}
+                      style={{ animationDelay: `${(i % 5) * 0.3}s` }}
                     />
                   ))}
                 </g>
@@ -167,31 +174,32 @@ export default function BiometricSection() {
         </div>
 
         {/* Right Side: Text, Official QR & Button */}
-        <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#232629] leading-[1.2]">
-            Դարձիր Evocabank-ի հաճախորդ <br />
-            բիոմետրիկ նույնականացմամբ
+        <div className="lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left w-full px-2">
+          <h2 className="text-xl sm:text-2xl md:text-[34px] lg:text-[38px] font-medium text-[#222222] font-['Montserratarm-Medium',Helvetica,Arial,sans-serif] leading-snug md:leading-tight">
+            Դարձիր Evocabank-ի հաճախորդ բիոմետրիկ նույնականացմամբ
           </h2>
-
-          <p className="text-[#333333] text-base md:text-[17px] leading-relaxed max-w-lg font-normal">
-            Սկանավորի՛ր <span className="underline decoration-1 underline-offset-4">QR կոդը</span>, Ներբեռնի՛ր EvocaTOUCH հարմարավետ հավելվածը, ստեղծի՛ր <span className="underline decoration-1 underline-offset-4">քո հաշիվը</span> և ստացիր քարտ
+          <p className="text-gray-600 text-xs sm:text-sm md:text-[17px] lg:text-[18px] font-['Montserratarm-Medium',Helvetica,Arial,sans-serif] leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Սկանավորիր QR կոդը, ներբեռնիր EvocaTOUCH հարմարավետ հավելվածը, ստեղծիր քո հաշիվը և ստացիր քարտ
           </p>
 
-          <div className="flex flex-row items-end gap-8 pt-4">
-            {/* Official Evocabank QR Code Image */}
-            <div className="relative w-44 h-44 sm:w-48 sm:h-48 flex-shrink-0">
-              <img 
-                src="https://www.evoca.am/img/biometric-section-QR-Code.png" 
-                alt="Evocabank Biometric QR Code" 
-                className="w-full h-full object-contain"
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
+            {/* QR կոդի բլոկ */}
+            <div className="bg-white p-2.5 rounded-2xl shadow-md border border-gray-100 shrink-0">
+              <img
+                src="https://www.evoca.am/img/biometric-section-QR-Code.png"
+                alt="QR Code"
+                className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
               />
             </div>
 
-            {/* Action Button */}
-            <div className="pb-2">
-              <button className="bg-[#7a00e6] hover:bg-[#6600c2] text-white font-medium px-8 py-3.5 rounded-full transition duration-200 cursor-pointer text-base shadow-sm">
+            {/* Կոճակ՝ Link-ով դեպի evocatouch */}
+            <div className="w-full sm:w-auto">
+              <Link
+                to="/evocatouch"
+                className="bg-[rgb(100,0,220)] hover:bg-[rgb(85,0,190)] text-white font-semibold px-8 py-3.5 rounded-full shadow-md transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base w-full sm:w-auto"
+              >
                 Իմանալ ավելին
-              </button>
+              </Link>
             </div>
           </div>
         </div>
