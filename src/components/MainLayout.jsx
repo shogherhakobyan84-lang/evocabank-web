@@ -1,7 +1,7 @@
 // import React, { useEffect } from 'react';
 // import { Outlet, useLocation } from 'react-router-dom';
-// import Header from '../components/Header';
-// import Navbar from '../components/Navbar';
+// import Header from './Header';
+// import Navbar from './Navbar';
 
 // const pageTitles = {
 //   '/': 'Էվոկաբանկ | Գլխավոր',
@@ -19,6 +19,10 @@
 //   '/hy/securities': 'Արժեթղթեր | Էվոկաբանկ',
 //   '/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
 //   '/hy/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
+//   '/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
+//   '/hy/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
+//   '/business': 'Բիզնես | Էվոկաբանկ',
+//   '/hy/business': 'Բիզնես | Էվոկաբանկ',
 // };
 
 // const MainLayout = () => {
@@ -47,6 +51,8 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Navbar from './Navbar';
+import Footer from './Footer';
+import PartnersFooterBottom from './PartnersFooterBottom'; // 1. Ներմուծում ենք գործընկերների բլոկը
 
 const pageTitles = {
   '/': 'Էվոկաբանկ | Գլխավոր',
@@ -66,6 +72,8 @@ const pageTitles = {
   '/hy/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',
   '/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
   '/hy/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
+  '/business': 'Բիզնես | Էվոկաբանկ',
+  '/hy/business': 'Բիզնես | Էվոկաբանկ',
 };
 
 const MainLayout = () => {
@@ -77,13 +85,21 @@ const MainLayout = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <Navbar />
+    <div className="min-h-screen bg-white flex flex-col justify-between">
+      <div>
+        <Header />
+        <Navbar />
 
-      <main>
-        <Outlet />
-      </main>
+        <main>
+          <Outlet />
+        </main>
+      </div>
+
+      
+      <div>
+        <Footer />
+        <PartnersFooterBottom />
+      </div>
     </div>
   );
 };
