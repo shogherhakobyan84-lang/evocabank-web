@@ -194,8 +194,7 @@ export default function LiveChat() {
           {/* Վերնագիր և Զանգերի կոճակներ (ՎԵՐԵՎՈՒՄ) */}
           <div className="bg-[#8c25e8] text-white p-4 flex justify-between items-center shadow-md">
             <div className="flex items-center space-x-2">
-              <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
-              <h3 className="font-bold text-base">Evoca Support & Chat</h3>
+              {/* Տեքստը և կետը հեռացված են */}
             </div>
             
             <div className="flex items-center space-x-2">
