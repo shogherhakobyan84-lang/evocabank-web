@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PartnersFooterBottom from './PartnersFooterBottom';
+
 
 export default function InstantPayments() {
   const [langOpen, setLangOpen] = useState(false);
@@ -234,7 +234,7 @@ export default function InstantPayments() {
 
         </div>
       </footer>
-            <PartnersFooterBottom />
+         
     </div>
   );
 }
