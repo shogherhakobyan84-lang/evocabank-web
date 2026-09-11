@@ -41,8 +41,9 @@ export default function InstantPayments() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Վերնագիր (Header) */}
-      <header className="w-full bg-white border-b border-gray-100 py-4 px-6 sm:px-12 flex items-center justify-between shadow-sm">
-        <div className="flex items-center space-x-6 pl-2">
+      <header className="w-full bg-white border-b border-gray-100 py-4 px-8 sm:px-16 flex items-center justify-between shadow-sm">
+        {/* Լոգոն տեղափոխված ավելի աջ */}
+        <div className="flex items-center space-x-6 pl-8">
           <img
             src="https://payments.evoca.am/assets/images/logo.png"
             alt="Evoca Logo"
@@ -53,8 +54,8 @@ export default function InstantPayments() {
           </span>
         </div>
 
-        <div className="flex items-center space-x-6 pr-2">
-          {/* Հեռախոսահամարը՝ ավելի ձախ, մանուշակագույն և բարակ */}
+        {/* Աջ կողմի տարրերը տեղափոխված մի քիչ ձախ */}
+        <div className="flex items-center space-x-6 pr-8">
           <span className="text-[#8c25e8] font-light text-sm tracking-wide">
             +374 10 605555
           </span>
@@ -100,7 +101,7 @@ export default function InstantPayments() {
             )}
           </div>
 
-          {/* Պատմություն կոճակ՝ կլորացված եզրերով */}
+          {/* Պատմություն կոճակ */}
           <button className="bg-[#8c25e8] text-white px-5 py-2 rounded-full text-xs font-medium hover:bg-purple-700 transition shadow-sm">
             Պատմություն
           </button>
@@ -108,8 +109,9 @@ export default function InstantPayments() {
       </header>
 
       {/* Հիմնական բովանդակություն */}
-      <main className="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">
+      <main className="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-12">
+        {/* Մեծացված և ներքև իջեցված Գլխավոր վերնագիր */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12 mt-4">
           Գլխավոր
         </h2>
 
@@ -120,7 +122,7 @@ export default function InstantPayments() {
             {topCards.map((card, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-[#8c25e8]/[0.03] hover:shadow-md cursor-pointer group min-h-[220px]"
+                className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-purple-50/75 hover:shadow-md cursor-pointer group min-h-[230px]"
               >
                 <div className="w-16 h-16 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <img src={card.img} alt={card.title} className="max-h-16 object-contain" />
@@ -137,7 +139,7 @@ export default function InstantPayments() {
             {bottomCards.map((card, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-[#8c25e8]/[0.03] hover:shadow-md cursor-pointer group min-h-[220px]"
+                className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-purple-50/75 hover:shadow-md cursor-pointer group min-h-[230px]"
               >
                 <div className="w-16 h-16 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <img src={card.img} alt={card.title} className="max-h-16 object-contain" />
