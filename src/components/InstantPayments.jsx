@@ -121,10 +121,10 @@ export default function InstantPayments() {
                 key={idx}
                 className="bg-white rounded-3xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-purple-50/75 hover:shadow-md cursor-pointer group min-h-[290px]"
               >
-                <div className="w-20 h-20 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <img src={card.img} alt={card.title} className="max-h-20 object-contain" />
+                <div className="w-24 h-24 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src={card.img} alt={card.title} className="max-h-24 object-contain" />
                 </div>
-                <h3 className="text-gray-800 font-semibold text-sm group-hover:text-[#8c25e8] transition-colors">
+                <h3 className="text-gray-800 font-normal text-base group-hover:text-[#8c25e8] transition-colors">
                   {card.title}
                 </h3>
               </div>
@@ -138,10 +138,10 @@ export default function InstantPayments() {
                 key={idx}
                 className="bg-white rounded-3xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-purple-50/75 hover:shadow-md cursor-pointer group min-h-[290px]"
               >
-                <div className="w-20 h-20 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <img src={card.img} alt={card.title} className="max-h-20 object-contain" />
+                <div className="w-24 h-24 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src={card.img} alt={card.title} className="max-h-24 object-contain" />
                 </div>
-                <h3 className="text-gray-800 font-semibold text-sm group-hover:text-[#8c25e8] transition-colors">
+                <h3 className="text-gray-800 font-normal text-base group-hover:text-[#8c25e8] transition-colors">
                   {card.title}
                 </h3>
               </div>
