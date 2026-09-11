@@ -4,7 +4,7 @@ export default function InstantPayments() {
   const [langOpen, setLangOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('ՀԱՅ');
 
-  const cards = [
+  const topCards = [
     {
       title: 'EVOCABANK',
       img: 'https://resource.evoca.am/images/WebPayment/evoca.png',
@@ -21,6 +21,9 @@ export default function InstantPayments() {
       title: 'Ինտերնետ և TV',
       img: 'https://resource.evoca.am/images/WebPayment/internettv.png',
     },
+  ];
+
+  const bottomCards = [
     {
       title: 'ՃՈ վճարներ',
       img: 'https://resource.evoca.am/images/WebPayment/roadpolice.png',
@@ -38,8 +41,8 @@ export default function InstantPayments() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Վերնագիր (Header) */}
-      <header className="w-full bg-white border-b border-gray-100 py-4 px-6 sm:px-10 flex items-center justify-between shadow-sm">
-        <div className="flex items-center space-x-6">
+      <header className="w-full bg-white border-b border-gray-100 py-4 px-6 sm:px-12 flex items-center justify-between shadow-sm">
+        <div className="flex items-center space-x-6 pl-2">
           <img
             src="https://payments.evoca.am/assets/images/logo.png"
             alt="Evoca Logo"
@@ -50,8 +53,11 @@ export default function InstantPayments() {
           </span>
         </div>
 
-        <div className="flex items-center space-x-6">
-          <span className="text-gray-700 font-semibold text-sm">+374 10 605555</span>
+        <div className="flex items-center space-x-6 pr-2">
+          {/* Հեռախոսահամարը՝ ավելի ձախ, մանուշակագույն և բարակ */}
+          <span className="text-[#8c25e8] font-light text-sm tracking-wide">
+            +374 10 605555
+          </span>
 
           {/* Լեզուների ընտրության բլոկ (Գլոբուս) */}
           <div
@@ -94,33 +100,54 @@ export default function InstantPayments() {
             )}
           </div>
 
-          <button className="bg-[#8c25e8] text-white px-4 py-2 rounded-lg text-xs font-semibold hover:bg-purple-700 transition shadow-sm">
+          {/* Պատմություն կոճակ՝ կլորացված եզրերով */}
+          <button className="bg-[#8c25e8] text-white px-5 py-2 rounded-full text-xs font-medium hover:bg-purple-700 transition shadow-sm">
             Պատմություն
           </button>
         </div>
       </header>
 
       {/* Հիմնական բովանդակություն */}
-      <main className="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-10">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-10">
+      <main className="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">
           Գլխավոր
         </h2>
 
-        {/* Քարտերի ցանց (Grid) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl p-6 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:ring-2 hover:ring-[#8c25e8]/20 hover:shadow-md cursor-pointer group min-h-[200px]"
-            >
-              <div className="w-16 h-16 mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                <img src={card.img} alt={card.title} className="max-h-14 object-contain" />
+        {/* Քարտերի բլոկներ */}
+        <div className="flex flex-col items-center gap-6">
+          {/* Վերևի շարք (4 քարտ) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+            {topCards.map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-[#8c25e8]/[0.03] hover:shadow-md cursor-pointer group min-h-[220px]"
+              >
+                <div className="w-16 h-16 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src={card.img} alt={card.title} className="max-h-16 object-contain" />
+                </div>
+                <h3 className="text-gray-800 font-semibold text-sm group-hover:text-[#8c25e8] transition-colors">
+                  {card.title}
+                </h3>
               </div>
-              <h3 className="text-gray-800 font-semibold text-sm group-hover:text-[#8c25e8] transition-colors">
-                {card.title}
-              </h3>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Ներքևի շարք (3 քարտ՝ կենտրոնացված) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-[900px]">
+            {bottomCards.map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-gray-200 shadow-sm transition-all duration-300 hover:border-[#8c25e8] hover:bg-[#8c25e8]/[0.03] hover:shadow-md cursor-pointer group min-h-[220px]"
+              >
+                <div className="w-16 h-16 mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <img src={card.img} alt={card.title} className="max-h-16 object-contain" />
+                </div>
+                <h3 className="text-gray-800 font-semibold text-sm group-hover:text-[#8c25e8] transition-colors">
+                  {card.title}
+                </h3>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     </div>
