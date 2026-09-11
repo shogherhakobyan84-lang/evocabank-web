@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PartnersFooterBottom from './PartnersFooterBottom';
 
 export default function InstantPayments() {
   const [langOpen, setLangOpen] = useState(false);
@@ -154,12 +155,12 @@ export default function InstantPayments() {
       <footer className="w-full bg-white border-t border-gray-200 py-10 px-8 sm:px-16 mt-16">
         <div className="max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 text-sm">
           
-          {/* Ձախ մաս՝ Լոգո և վերահսկողության տեքստ */}
+          {/* Ձախ մաս՝ Մեծացրած Լոգո և վերահսկողության տեքստ */}
           <div className="flex flex-col space-y-3 text-left">
             <img
               src="https://online.evoca.am/OnlineBanking/Web/images/bank-logo-login.svg"
               alt="Evocabank Login Logo"
-              className="h-7 object-contain"
+              className="h-10 object-contain"
             />
             <p className="text-gray-500 text-xs">
               Բանկը վերահսկվում է ՀՀ ԿԲ-ի կողմից
@@ -233,6 +234,7 @@ export default function InstantPayments() {
 
         </div>
       </footer>
+            <PartnersFooterBottom />
     </div>
   );
 }
