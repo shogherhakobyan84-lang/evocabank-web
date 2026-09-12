@@ -13,6 +13,7 @@
 // import EvocaOnline from './pages/EvocaOnline';
 // import Business from './pages/Business';
 // import InstantPayments from './components/InstantPayments';
+// import AboutGeneral from './pages/AboutGeneral'; // Ներմուծում ենք մեր մասին նոր էջը
 
 // function App() {
 //   return (
@@ -42,6 +43,11 @@
 //           <Route path="hy/evoca-touch" element={<EvocaTouch />} />
 //           <Route path="evocatouch" element={<EvocaTouch />} />
 //           <Route path="hy/evocatouch" element={<EvocaTouch />} />
+          
+//           {/* Մեր մասին -> Ընդհանուր էջի երթուղիները MainLayout-ի ներսում */}
+//           <Route path="hy/general-information-history-key-values" element={<AboutGeneral />} />
+//           <Route path="about" element={<AboutGeneral />} />
+//           <Route path="hy/about" element={<AboutGeneral />} />
 //         </Route>
 
 //         <Route path="evoca-online" element={<EvocaOnline />} />
@@ -52,8 +58,6 @@
 //         <Route path="instant-payments" element={<InstantPayments />} />
 //         <Route path="hy/instant-payments" element={<InstantPayments />} />
 //       </Routes>
-
-//       {/* Այստեղից <LiveChat />-ը հեռացված է, հետևաբար այն կանհետանա այն էջերից, որտեղ հարկավոր չէ */}
 //     </BrowserRouter>
 //   );
 // }
@@ -75,7 +79,8 @@ import EvocaTouch from './pages/EvocaTouch';
 import EvocaOnline from './pages/EvocaOnline';
 import Business from './pages/Business';
 import InstantPayments from './components/InstantPayments';
-import AboutGeneral from './pages/AboutGeneral'; // Ներմուծում ենք մեր մասին նոր էջը
+import AboutGeneral from './pages/AboutGeneral';
+import News from './pages/News'; // Ներմուծում ենք Նորություններ էջը
 
 function App() {
   return (
@@ -106,10 +111,14 @@ function App() {
           <Route path="evocatouch" element={<EvocaTouch />} />
           <Route path="hy/evocatouch" element={<EvocaTouch />} />
           
-          {/* Մեր մասին -> Ընդհանուր էջի երթուղիները MainLayout-ի ներսում */}
+          {/* Մեր մասին էջի երթուղիները */}
           <Route path="hy/general-information-history-key-values" element={<AboutGeneral />} />
           <Route path="about" element={<AboutGeneral />} />
           <Route path="hy/about" element={<AboutGeneral />} />
+
+          {/* Նորություններ էջի երթուղիները */}
+          <Route path="news" element={<News />} />
+          <Route path="hy/news" element={<News />} />
         </Route>
 
         <Route path="evoca-online" element={<EvocaOnline />} />

@@ -4,7 +4,7 @@
 // import Navbar from './Navbar';
 // import Footer from './Footer';
 // import PartnersFooterBottom from './PartnersFooterBottom';
-// import LiveChat from './LiveChat'; // 1. Ներմուծում ենք LiveChat-ը (ուշադրություն դարձրու ֆայլի ճանապարհին, եթե LiveChat-ը հենց այս ֆոլդերում է)
+// import LiveChat from './LiveChat';
 
 // const pageTitles = {
 //   '/': 'Էվոկաբանկ | Գլխավոր',
@@ -26,6 +26,7 @@
 //   '/hy/evoca-touch': 'EvocaTOUCH | Էվոկաբանկ',
 //   '/business': 'Բիզնես | Էվոկաբանկ',
 //   '/hy/business': 'Բիզնես | Էվոկաբանկ',
+//   '/hy/general-information-history-key-values': 'Ընդհանուր տեղեկատվություն | Էվոկաբանկ',
 // };
 
 // const MainLayout = () => {
@@ -52,7 +53,6 @@
 //         <PartnersFooterBottom />
 //       </div>
 
-//       {/* 2. Տեղադրում ենք LiveChat-ը այստեղ, որպեսզի այն երևա MainLayout-ի բոլոր էջերում, բայց ոչ InstantPayments-ում */}
 //       <LiveChat />
 //     </div>
 //   );
@@ -89,6 +89,8 @@ const pageTitles = {
   '/business': 'Բիզնես | Էվոկաբանկ',
   '/hy/business': 'Բիզնես | Էվոկաբանկ',
   '/hy/general-information-history-key-values': 'Ընդհանուր տեղեկատվություն | Էվոկաբանկ',
+  '/news': 'Նորություններ | Էվոկաբանկ',
+  '/hy/news': 'Նորություններ | Էվոկաբանկ',
 };
 
 const MainLayout = () => {
