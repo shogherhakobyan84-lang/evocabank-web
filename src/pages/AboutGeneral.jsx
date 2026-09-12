@@ -1,84 +1,125 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import AboutMission from '../components/AboutMission';
+import AboutCSR from '../components/AboutCSR';
+import AboutBrand from '../components/AboutBrand';
 
 export default function AboutGeneral() {
   const subNavItems = [
-    { name: 'Ընդհանուր', path: '#' },
-    { name: 'Կառուցվածք', path: '#' },
-    { name: 'Բաժնետերեր', path: '#' },
-    { name: 'Ղեկավարություն', path: '#' },
-    { name: 'Գործընկերներ', path: '#' },
-    { name: 'Մրցանակներ', path: '#' },
-    { name: 'CSR', path: '#' },
-    { name: 'Էվոկա ֆինանսական խումբ', path: '#' },
+    { title: 'Ընդհանուր', path: '/about' },
+    { title: 'Կառուցվածք', path: '/about/structure' },
+    { title: 'Բաժնետերեր', path: '/about/shareholders' },
+    { title: 'Ղեկավարություն', path: '/about/management' },
+    { title: 'Գործընկերներ', path: '/about/partners' },
+    { title: 'Մրցանակներ', path: '/about/awards' },
+    { title: 'CSR', path: '/about/csr' },
+    { title: 'Էվոկա ֆինանսական խումբ', path: '/about/financial-group' },
   ];
 
   return (
-    <div className="bg-white min-h-screen">
-      {/* Երկար մանուշակագույն հորիզոնական մենյու (Sticky - պահպանվում է սկրոլի ժամանակ) */}
-      <div className="sticky top-0 z-40 bg-[#8c25e8] text-white shadow-md">
-        <div className="max-w-[1300px] mx-auto px-4 sm:px-8 flex items-center overflow-x-auto py-3.5 space-x-8 text-sm font-medium scrollbar-none">
+    <div className="w-full bg-white min-h-screen">
+      {/* Մանուշակագույն հորիզոնական մենյու */}
+      <div className="sticky top-20 z-40 w-full bg-[#7100e2] text-white shadow-md">
+        <div className="max-w-[1400px] mx-auto px-8 flex items-center space-x-2 overflow-x-auto">
           {subNavItems.map((item, idx) => (
-            <a
+            <NavLink
               key={idx}
-              href={item.path}
-              className="whitespace-nowrap hover:text-purple-200 transition"
+              to={item.path}
+              end={item.path === '/about'}
+              className={({ isActive }) =>
+                `px-7 py-4.5 text-[15px] font-bold transition-colors duration-200 cursor-pointer whitespace-nowrap ${
+                  isActive
+                    ? 'bg-[#4c0099] text-white'
+                    : 'hover:bg-[#5e00bd] text-white/90'
+                }`
+              }
             >
-              {item.name}
-            </a>
+              {item.title}
+            </NavLink>
           ))}
         </div>
       </div>
 
-      {/* Breadcrumb (Տնակ և տեքստեր առանց hover-ի) */}
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-4 flex items-center space-x-2 text-xs text-gray-500">
-        <Link to="/" className="hover:text-[#8c25e8] transition flex items-center cursor-pointer">
-          {/* Տնակի պատկերակ */}
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-        </Link>
-        <span>/</span>
-        <span className="cursor-default select-none text-gray-500">Մեր մասին</span>
-        <span>/</span>
-        <span className="cursor-default select-none text-gray-500">Evoca-ի մասին</span>
-        <span>/</span>
-        <span className="text-gray-800 font-medium cursor-default select-none">Ընդհանուր</span>
-      </div>
+      <div className="max-w-[1400px] mx-auto px-8 pt-6 pb-6">
+        {/* Breadcrumb */}
+        <div className="text-sm text-gray-400 mb-4 flex items-center space-x-2.5 font-normal select-none">
+          <Link 
+            to="/" 
+            className="text-gray-400 flex items-center justify-center shrink-0 cursor-default"
+            title="Գլխավոր էջ"
+          >
+            <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l1.293 1.293a1 1 0 001-1.414-1.414l-7-7z" />
+            </svg>
+          </Link>
+          <span className="text-gray-300 text-xs">›</span>
+          <span className="cursor-default">Մեր մասին</span>
+          <span className="text-gray-300 text-xs">›</span>
+          <span className="cursor-default">Evoca-ի մասին</span>
+          <span className="text-gray-300 text-xs">›</span>
+          <span className="cursor-default">Ընդհանուր</span>
+        </div>
 
-      {/* Հիմնական բովանդակություն */}
-      <main className="max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-8 pb-20">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">
+        {/* Վերնագիր */}
+        <h1 className="text-4xl font-extrabold text-gray-900 mt-14 mb-8">
           Ընդհանուր տեղեկատվություն
         </h1>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Ձախ մասի տեքստեր */}
-          <div className="space-y-6 text-gray-700 text-sm sm:text-base leading-relaxed">
+      {/* Առաջին բաժին՝ ամբողջական մոխրագույն ֆոնով */}
+      <div className="w-full bg-[#f1f3f5] py-16 px-8 lg:px-16">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Ձախ մասի տեքստը */}
+          <div className="lg:col-span-6 space-y-6 text-gray-800 font-medium text-[19px] leading-relaxed max-w-[500px]">
             <p>
-              <strong className="text-gray-900 font-semibold">Evocabank</strong>-ը արագ, պարզ և նորարար ծառայություններ մատուցող բանկ է, որն առանձնանում է տեղեկատվական նորագույն տեխնոլոգիաների ակտիվ կիրառմամբ:
+              <span className="text-[#7100e2] font-bold">Evocabank</span>-ը արագ, պարզ և նորարար ծառայություններ մատուցող բանկ է, որն առանձնանում է տեղեկատվական նորագույն տեխնոլոգիաների ակտիվ կիրառմամբ:
             </p>
             <p>
               Մենք հատուկ ուշադրություն ենք դարձնում մոբայլ ծառայությունների զարգացմանը:
             </p>
             <p>
-              Մենք աշխատում ենք mobile-first ֆորմատով՝ յուրաքանչյուր նոր ծառայություն նախագծելիս նախառաջ հաշվի ենք առնում դրա՝ հավելվածով օգտագործման հարմարավետությունը:
+              Մենք աշխատում ենք mobile-first ֆորմատով՝ յուրաքանչյուր նոր ծառայություն նախագծելիս՝ նախևառաջ հաշվի ենք առնելու դրա՝ հավելվածով օգտագործման հարմարավետությունը:
+            </p>
+            <p>
+              Աշխարհը թվային է դառնում, և մենք պատրաստ ենք դրան:
             </p>
           </div>
 
-          {/* Աջ մասի պատկեր */}
-          <div className="rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-[#5d109e] relative flex items-center justify-center min-h-[300px]">
+          {/* Աջ մասի նկարը */}
+          <div className="lg:col-span-6 w-full flex items-center justify-center">
             <img
-              src="https://resource.evoca.am/images/About/about-general.jpg"
+              src="https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png"
               alt="Evocabank General"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80';
-              }}
+              className="w-full h-auto object-cover max-w-[700px]"
             />
           </div>
+
         </div>
-      </main>
+      </div>
+
+      {/* Երկրորդ բաժին՝ «Մեր տեսլականը» */}
+      <div className="w-full bg-[#7100e2] text-white py-20 px-8 lg:px-16">
+        <div className="max-w-[1400px] mx-auto flex justify-center">
+          <div className="w-full max-w-[900px]">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-left mb-10 tracking-wide">
+              Մեր տեսլականը
+            </h2>
+
+            <div className="flex items-start space-x-6">
+              <div className="w-12 h-[3px] bg-white shrink-0 mt-3.5"></div>
+              <p className="text-white text-lg lg:text-[21px] font-medium leading-relaxed">
+                Դառնալ գլոբալ ֆինտեխ գործընկեր, որը միավորում է լավագույն փորձն ու տեխնոլոգիական նորարարությունները հարմարավետ և ճկուն ծառայություններ ապահովելու համար:
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <AboutMission />
+      <AboutCSR />
+    <AboutBrand />
     </div>
   );
 }
