@@ -27,6 +27,8 @@
 //   '/business': 'Բիզնես | Էվոկաբանկ',
 //   '/hy/business': 'Բիզնես | Էվոկաբանկ',
 //   '/hy/general-information-history-key-values': 'Ընդհանուր տեղեկատվություն | Էվոկաբանկ',
+//   '/news': 'Նորություններ | Էվոկաբանկ',
+//   '/hy/news': 'Նորություններ | Էվոկաբանկ',
 // };
 
 // const MainLayout = () => {
@@ -91,6 +93,8 @@ const pageTitles = {
   '/hy/general-information-history-key-values': 'Ընդհանուր տեղեկատվություն | Էվոկաբանկ',
   '/news': 'Նորություններ | Էվոկաբանկ',
   '/hy/news': 'Նորություններ | Էվոկաբանկ',
+  '/blog': 'Բլոգ | Էվոկաբանկ',
+  '/hy/blog': 'Բլոգ | Էվոկաբանկ',
 };
 
 const MainLayout = () => {

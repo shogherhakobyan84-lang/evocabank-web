@@ -13,7 +13,8 @@
 // import EvocaOnline from './pages/EvocaOnline';
 // import Business from './pages/Business';
 // import InstantPayments from './components/InstantPayments';
-// import AboutGeneral from './pages/AboutGeneral'; // Ներմուծում ենք մեր մասին նոր էջը
+// import AboutGeneral from './pages/AboutGeneral';
+// import News from './pages/News'; // Ներմուծում ենք Նորություններ էջը
 
 // function App() {
 //   return (
@@ -44,10 +45,14 @@
 //           <Route path="evocatouch" element={<EvocaTouch />} />
 //           <Route path="hy/evocatouch" element={<EvocaTouch />} />
           
-//           {/* Մեր մասին -> Ընդհանուր էջի երթուղիները MainLayout-ի ներսում */}
+//           {/* Մեր մասին էջի երթուղիները */}
 //           <Route path="hy/general-information-history-key-values" element={<AboutGeneral />} />
 //           <Route path="about" element={<AboutGeneral />} />
 //           <Route path="hy/about" element={<AboutGeneral />} />
+
+//           {/* Նորություններ էջի երթուղիները */}
+//           <Route path="news" element={<News />} />
+//           <Route path="hy/news" element={<News />} />
 //         </Route>
 
 //         <Route path="evoca-online" element={<EvocaOnline />} />
@@ -80,7 +85,8 @@ import EvocaOnline from './pages/EvocaOnline';
 import Business from './pages/Business';
 import InstantPayments from './components/InstantPayments';
 import AboutGeneral from './pages/AboutGeneral';
-import News from './pages/News'; // Ներմուծում ենք Նորություններ էջը
+import News from './pages/News';
+import Blog from './pages/Blog'; // Ներմուծում ենք Բլոգ էջը
 
 function App() {
   return (
@@ -119,6 +125,10 @@ function App() {
           {/* Նորություններ էջի երթուղիները */}
           <Route path="news" element={<News />} />
           <Route path="hy/news" element={<News />} />
+
+          {/* Բլոգ էջի երթուղիները */}
+          <Route path="blog" element={<Blog />} />
+          <Route path="hy/blog" element={<Blog />} />
         </Route>
 
         <Route path="evoca-online" element={<EvocaOnline />} />
