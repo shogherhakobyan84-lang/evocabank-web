@@ -106,8 +106,10 @@ function App() {
           <Route path="evocatouch" element={<EvocaTouch />} />
           <Route path="hy/evocatouch" element={<EvocaTouch />} />
           
-          {/* Մեր մասին -> Ընդհանուր էջի երթուղին MainLayout-ի ներսում */}
+          {/* Մեր մասին -> Ընդհանուր էջի երթուղիները MainLayout-ի ներսում */}
           <Route path="hy/general-information-history-key-values" element={<AboutGeneral />} />
+          <Route path="about" element={<AboutGeneral />} />
+          <Route path="hy/about" element={<AboutGeneral />} />
         </Route>
 
         <Route path="evoca-online" element={<EvocaOnline />} />
