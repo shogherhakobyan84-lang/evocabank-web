@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LoanCard from '../components/LoanCard';
 import loansData from '../components/LoansData';
 
 export default function Loans() {
   const [activeFilter, setActiveFilter] = useState('Բոլորը');
+  const location = useLocation();
 
   const filters = [
     'Բոլորը',
@@ -36,39 +37,42 @@ export default function Loans() {
     <div className="w-full bg-white min-h-screen">
       {/* 1. Sub-Navbar */}
       <div className="sticky top-20 z-40 w-full bg-[#7100e2] text-white shadow-md">
-        <div className="max-w-[1400px] mx-auto px-8 flex items-center space-x-2">
-          {subNavItems.map((item, idx) => (
-            <NavLink
-              key={idx}
-              to={item.path}
-              end={item.path === '/hy/loans'}
-              className={({ isActive }) =>
-                `px-7 py-4.5 text-[15px] font-bold transition-colors duration-200 cursor-pointer ${
+        <div className="max-w-[1400px] mx-auto px-8 flex items-center space-x-2 overflow-x-auto no-scrollbar">
+          {subNavItems.map((item, idx) => {
+            const isActive = location.pathname === item.path;
+
+            return (
+              <Link
+                key={idx}
+                to={item.path}
+                className={`px-7 py-4.5 text-[15px] font-bold cursor-pointer whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#4c0099] text-white'
-                    : 'hover:bg-[#5e00bd] text-white/90'
-                }`
-              }
-            >
-              {item.title}
-            </NavLink>
-          ))}
+                    ? 'bg-[#4c0099] text-white shadow-inner'
+                    : 'text-white/90'
+                }`}
+              >
+                {item.title}
+              </Link>
+            );
+          })}
         </div>
       </div>
 
       {/* Էջի հիմնական բովանդակությունը */}
-      <div className="max-w-[1400px] mx-auto px-8 py-6">
+      <div className="max-w-[1400px] mx-auto px-8 py-8">
         
-        {/* 2. Breadcrumbs */}
-        <div className="text-sm text-gray-400 mb-4 flex items-center space-x-2">
-          <Link to="/" className="hover:text-purple-600 transition-colors cursor-pointer text-base">
-            🏠
+        {/* 2. Breadcrumbs (Տնակը տանում է գլխավոր էջ) */}
+        <div className="text-sm text-gray-500 mb-8 flex items-center space-x-2.5 select-none">
+          <Link to="/" className="flex items-center cursor-pointer">
+            <svg className="w-4 h-4 text-gray-500 fill-current" viewBox="0 0 24 24">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
           </Link>
-          <span>›</span>
-          <span className="hover:underline cursor-pointer">Անհատ</span>
-          <span>›</span>
-          <span className="hover:underline cursor-pointer">Վարկեր</span>
-          <span>›</span>
+          <span className="text-gray-400">›</span>
+          <span className="text-gray-500">Անհատ</span>
+          <span className="text-gray-400">›</span>
+          <span className="text-gray-500">Վարկեր</span>
+          <span className="text-gray-400">›</span>
           <span className="text-gray-900 font-medium">Վարկեր</span>
         </div>
 

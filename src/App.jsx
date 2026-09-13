@@ -3,6 +3,8 @@
 // import MainLayout from './components/MainLayout';
 // import Home from './components/Home';
 // import Loans from './pages/Loans';
+// import CreditHistory from "./components/CreditHistory";
+// import ImportantInfo from './components/ImportantInfo';
 // import Cards from './pages/Cards';
 // import Deposits from './pages/Deposits';
 // import Accounts from './pages/Accounts';
@@ -15,7 +17,8 @@
 // import InstantPayments from './components/InstantPayments';
 // import AboutGeneral from './pages/AboutGeneral';
 // import News from './pages/News';
-// import Blog from './pages/Blog'; // Ներմուծում ենք Բլոգ էջը
+// import Blog from './pages/Blog';
+// import Culture from './pages/Culture';
 
 // function App() {
 //   return (
@@ -27,6 +30,15 @@
 //           <Route path="hy/business" element={<Business />} />
 //           <Route path="hy/loans" element={<Loans />} />
 //           <Route path="loans" element={<Loans />} />
+          
+//           {/* Վարկային պատմություն և սքոր էջի երթուղիները */}
+//           <Route path="hy/loans/credit-history" element={<CreditHistory />} />
+//           <Route path="loans/credit-history" element={<CreditHistory />} />
+
+//           {/* Կարևոր տեղեկատվություն էջի երթուղիները 👈 Ավելացված է */}
+//           <Route path="hy/loans/important-info" element={<ImportantInfo />} />
+//           <Route path="loans/important-info" element={<ImportantInfo />} />
+
 //           <Route path="cards" element={<Cards />} />
 //           <Route path="hy/cards" element={<Cards />} />
 //           <Route path="deposits" element={<Deposits />} />
@@ -58,6 +70,12 @@
 //           {/* Բլոգ էջի երթուղիները */}
 //           <Route path="blog" element={<Blog />} />
 //           <Route path="hy/blog" element={<Blog />} />
+
+//           {/* Կարիերա / Մշակույթ էջի երթուղիները */}
+//           <Route path="culture" element={<Culture />} />
+//           <Route path="hy/culture" element={<Culture />} />
+//           <Route path="career" element={<Culture />} />
+//           <Route path="hy/career" element={<Culture />} />
 //         </Route>
 
 //         <Route path="evoca-online" element={<EvocaOnline />} />
@@ -79,6 +97,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
 import Home from './components/Home';
 import Loans from './pages/Loans';
+import CreditHistory from "./components/CreditHistory";
+import ImportantInfo from './components/ImportantInfo'; // 👈 Իմպորտը components թղթապանակից
 import Cards from './pages/Cards';
 import Deposits from './pages/Deposits';
 import Accounts from './pages/Accounts';
@@ -92,7 +112,7 @@ import InstantPayments from './components/InstantPayments';
 import AboutGeneral from './pages/AboutGeneral';
 import News from './pages/News';
 import Blog from './pages/Blog';
-import Culture from './pages/Culture'; // <--- Ներմուծում ենք Կարիերա/Մշակույթ էջը
+import Culture from './pages/Culture';
 
 function App() {
   return (
@@ -104,6 +124,15 @@ function App() {
           <Route path="hy/business" element={<Business />} />
           <Route path="hy/loans" element={<Loans />} />
           <Route path="loans" element={<Loans />} />
+          
+          {/* Վարկային պատմություն և սքոր էջի երթուղիները */}
+          <Route path="hy/loans/credit-history" element={<CreditHistory />} />
+          <Route path="loans/credit-history" element={<CreditHistory />} />
+
+          {/* Կարևոր տեղեկատվություն էջի երթուղիները */}
+          <Route path="hy/loans/important-info" element={<ImportantInfo />} />
+          <Route path="loans/important-info" element={<ImportantInfo />} />
+
           <Route path="cards" element={<Cards />} />
           <Route path="hy/cards" element={<Cards />} />
           <Route path="deposits" element={<Deposits />} />
