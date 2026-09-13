@@ -6,6 +6,7 @@
 // import CreditHistory from "./components/CreditHistory";
 // import ImportantInfo from './components/ImportantInfo';
 // import Cards from './pages/Cards';
+// import CardProvisionAndService from './components/CardProvisionAndService'; // 👈 Նոր բաղադրիչի իմպորտը
 // import Deposits from './pages/Deposits';
 // import Accounts from './pages/Accounts';
 // import Transfers from './pages/Transfers';
@@ -35,12 +36,16 @@
 //           <Route path="hy/loans/credit-history" element={<CreditHistory />} />
 //           <Route path="loans/credit-history" element={<CreditHistory />} />
 
-//           {/* Կարևոր տեղեկատվություն էջի երթուղիները 👈 Ավելացված է */}
+//           {/* Կարևոր տեղեկատվություն էջի երթուղիները */}
 //           <Route path="hy/loans/important-info" element={<ImportantInfo />} />
 //           <Route path="loans/important-info" element={<ImportantInfo />} />
 
+//           {/* Քարտեր և նրա ենթաէջերը */}
 //           <Route path="cards" element={<Cards />} />
 //           <Route path="hy/cards" element={<Cards />} />
+//           <Route path="cards/issuance-service" element={<CardProvisionAndService />} />
+//           <Route path="hy/cards/issuance-service" element={<CardProvisionAndService />} />
+
 //           <Route path="deposits" element={<Deposits />} />
 //           <Route path="hy/deposits" element={<Deposits />} />
 //           <Route path="accounts" element={<Accounts />} />
@@ -98,8 +103,10 @@ import MainLayout from './components/MainLayout';
 import Home from './components/Home';
 import Loans from './pages/Loans';
 import CreditHistory from "./components/CreditHistory";
-import ImportantInfo from './components/ImportantInfo'; // 👈 Իմպորտը components թղթապանակից
+import ImportantInfo from './components/ImportantInfo';
 import Cards from './pages/Cards';
+import CardProvisionAndService from './components/CardProvisionAndService';
+import SocialSecurityCards from './components/SocialSecurityCards'; // 👈 Նոր բաղադրիչի իմպորտը
 import Deposits from './pages/Deposits';
 import Accounts from './pages/Accounts';
 import Transfers from './pages/Transfers';
@@ -133,8 +140,16 @@ function App() {
           <Route path="hy/loans/important-info" element={<ImportantInfo />} />
           <Route path="loans/important-info" element={<ImportantInfo />} />
 
+          {/* Քարտեր և նրա ենթաէջերը */}
           <Route path="cards" element={<Cards />} />
           <Route path="hy/cards" element={<Cards />} />
+          <Route path="cards/issuance-service" element={<CardProvisionAndService />} />
+          <Route path="hy/cards/issuance-service" element={<CardProvisionAndService />} />
+          
+          {/* Սոցիալական ապահովության վճարային քարտեր */}
+          <Route path="cards/social-security" element={<SocialSecurityCards />} />
+          <Route path="hy/cards/social-security" element={<SocialSecurityCards />} />
+
           <Route path="deposits" element={<Deposits />} />
           <Route path="hy/deposits" element={<Deposits />} />
           <Route path="accounts" element={<Accounts />} />
