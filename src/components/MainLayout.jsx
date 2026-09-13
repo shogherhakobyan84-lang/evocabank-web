@@ -29,6 +29,8 @@
 //   '/hy/general-information-history-key-values': 'Ընդհանուր տեղեկատվություն | Էվոկաբանկ',
 //   '/news': 'Նորություններ | Էվոկաբանկ',
 //   '/hy/news': 'Նորություններ | Էվոկաբանկ',
+//   '/blog': 'Բլոգ | Էվոկաբանկ',
+//   '/hy/blog': 'Բլոգ | Էվոկաբանկ',
 // };
 
 // const MainLayout = () => {
@@ -61,6 +63,7 @@
 // };
 
 // export default MainLayout;
+
 
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
@@ -95,6 +98,8 @@ const pageTitles = {
   '/hy/news': 'Նորություններ | Էվոկաբանկ',
   '/blog': 'Բլոգ | Էվոկաբանկ',
   '/hy/blog': 'Բլոգ | Էվոկաբանկ',
+  '/culture': 'Մշակույթ | Էվոկաբանկ',
+  '/hy/culture': 'Մշակույթ | Էվոկաբանկ',
 };
 
 const MainLayout = () => {

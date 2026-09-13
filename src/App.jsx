@@ -14,7 +14,8 @@
 // import Business from './pages/Business';
 // import InstantPayments from './components/InstantPayments';
 // import AboutGeneral from './pages/AboutGeneral';
-// import News from './pages/News'; // Ներմուծում ենք Նորություններ էջը
+// import News from './pages/News';
+// import Blog from './pages/Blog'; // Ներմուծում ենք Բլոգ էջը
 
 // function App() {
 //   return (
@@ -53,6 +54,10 @@
 //           {/* Նորություններ էջի երթուղիները */}
 //           <Route path="news" element={<News />} />
 //           <Route path="hy/news" element={<News />} />
+
+//           {/* Բլոգ էջի երթուղիները */}
+//           <Route path="blog" element={<Blog />} />
+//           <Route path="hy/blog" element={<Blog />} />
 //         </Route>
 
 //         <Route path="evoca-online" element={<EvocaOnline />} />
@@ -86,7 +91,8 @@ import Business from './pages/Business';
 import InstantPayments from './components/InstantPayments';
 import AboutGeneral from './pages/AboutGeneral';
 import News from './pages/News';
-import Blog from './pages/Blog'; // Ներմուծում ենք Բլոգ էջը
+import Blog from './pages/Blog';
+import Culture from './pages/Culture'; // <--- Ներմուծում ենք Կարիերա/Մշակույթ էջը
 
 function App() {
   return (
@@ -129,6 +135,12 @@ function App() {
           {/* Բլոգ էջի երթուղիները */}
           <Route path="blog" element={<Blog />} />
           <Route path="hy/blog" element={<Blog />} />
+
+          {/* Կարիերա / Մշակույթ էջի երթուղիները */}
+          <Route path="culture" element={<Culture />} />
+          <Route path="hy/culture" element={<Culture />} />
+          <Route path="career" element={<Culture />} />
+          <Route path="hy/career" element={<Culture />} />
         </Route>
 
         <Route path="evoca-online" element={<EvocaOnline />} />
