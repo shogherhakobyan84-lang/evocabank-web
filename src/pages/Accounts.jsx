@@ -13,24 +13,26 @@ export default function Accounts() {
 
   return (
     <div className="w-full bg-white min-h-screen">
+      {/* Մանուշակագույն ենթամենյու */}
       <div className="sticky top-20 z-40 w-full bg-[#7100e2] text-white shadow-md">
         <div className="max-w-[1400px] mx-auto px-8 flex items-center space-x-2 overflow-x-auto">
-          {subNavItems.map((item, idx) => (
-            <NavLink
-              key={idx}
-              to={item.path}
-              end={item.path === '/accounts'}
-              className={({ isActive }) =>
-                `px-7 py-4.5 text-[15px] font-bold transition-colors duration-200 cursor-pointer whitespace-nowrap ${
+          {subNavItems.map((item, idx) => {
+            const isActive = item.path === '/accounts';
+            return (
+              <NavLink
+                key={idx}
+                to={item.path}
+                end={item.path === '/accounts'}
+                className={`px-7 py-4.5 text-[15px] font-bold transition-none cursor-pointer whitespace-nowrap ${
                   isActive
                     ? 'bg-[#4c0099] text-white'
-                    : 'hover:bg-[#5e00bd] text-white/90'
-                }`
-              }
-            >
-              {item.title}
-            </NavLink>
-          ))}
+                    : 'text-white/90 hover:bg-[#5e00bd]'
+                }`}
+              >
+                {item.title}
+              </NavLink>
+            );
+          })}
         </div>
       </div>
 
@@ -82,7 +84,7 @@ export default function Accounts() {
           </div>
         </div>
 
-        {/* Պայմանագրային փոխհարաբերությունների տեքստը (լայնացված max-w-[1100px]-ով) */}
+        {/* Պայմանագրային փոխհարաբերությունների տեքստը */}
         <div className="mt-20 mb-16 flex justify-center w-full">
           <p className="text-[#1a1d20] text-[16px] lg:text-[17px] font-normal leading-[1.7] text-left max-w-[1100px] w-full">
             Մեր և ձեր պայմանագրային փոխհարաբերությունները կարգավորվում են ՀԱՄԱԼԻՐ ԲԱՆԿԱՅԻՆ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԻ ՄԱՏՈՒՑՄԱՆ ՊԱՅՄԱՆՆԵՐՈՎ, որը հրապարակային առաջարկ (օֆերտա) է և ձեր կողմից համարվում է ընդունված այն պահից, երբ առձեռն կամ հեռակառավարման համակարգերի միջոցով մեզ եք ներկայացնում պատշաճ լրացված և վավերացված' բանկային ծառայություններից օգտվելու հայտ/դիմում: Համալիր բանկային ծառայությունների մատուցման պայմաններին կարող եք ծանոթանալ{' '}
@@ -95,8 +97,9 @@ export default function Accounts() {
             :
           </p>
         </div>
-          <ApplySection />
-          <InfoAccordion />
+
+        <ApplySection />
+        <InfoAccordion />
       </div>
     </div>
   );
