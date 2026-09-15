@@ -28,10 +28,12 @@ const pageTitles = {
   '/hy/accounts/unallocated-metal': 'Առարկայազուրկ մետաղական հաշիվներ | Էվոկաբանկ',
   '/accounts/non-resident': 'Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում | Էվոկաբանկ',
   '/hy/accounts/non-resident': 'Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում | Էվոկաբանկ',
-  '/accounts/safes': 'Պահատուփեր | Էվոկաբանկ', // 👈 Ավելացված է
-  '/hy/accounts/safes': 'Պահատուփեր | Էվոկաբանկ', // 👈 Ավելացված է
+  '/accounts/safes': 'Պահատուփեր | Էվոկաբանկ',
+  '/hy/accounts/safes': 'Պահատուփեր | Էվոկաբանկ',
   '/transfers': 'Փոխանցումներ | Էվոկաբանկ',
   '/hy/transfers': 'Փոխանցումներ | Էվոկաբանկ',
+  '/transfers/payment-systems': 'Վճարային համակարգեր | Էվոկաբանկ', // 👈 Ավելացված է
+  '/hy/transfers/payment-systems': 'Վճարային համակարգեր | Էվոկաբանկ', // 👈 Ավելացված է
   '/securities': 'Արժեթղթեր | Էվոկաբանկ',
   '/hy/securities': 'Արժեթղթեր | Էվոկաբանկ',
   '/evoca-salary': 'EvocaSALARY | Էվոկաբանկ',

@@ -12,8 +12,9 @@ import Deposits from './pages/Deposits';
 import Accounts from './pages/Accounts';
 import UnallocatedMetalAccounts from './components/UnallocatedMetalAccounts';
 import NonResident from './components/NonResident';
-import SafeBoxes from './components/SafeBoxes'; // 👈 Ավելացված է (կարգավորիր ֆայլի ճանապարհը ըստ անհրաժեշտության)
+import SafeBoxes from './components/SafeBoxes';
 import Transfers from './pages/Transfers';
+import PaymentSystems from './components/PaymentSystems'; // 👈 Ավելացված է (նոր բաղադրիչը components թղթապանակում)
 import Securities from './pages/Securities';
 import EvocaSalary from './pages/EvocaSalary';
 import EvocaTouch from './pages/EvocaTouch';
@@ -59,11 +60,14 @@ function App() {
           <Route path="hy/accounts/unallocated-metal" element={<UnallocatedMetalAccounts />} />
           <Route path="accounts/non-resident" element={<NonResident />} />
           <Route path="hy/accounts/non-resident" element={<NonResident />} />
-          <Route path="accounts/safes" element={<SafeBoxes />} />          {/* 👈 Ավելացված է */}
-          <Route path="hy/accounts/safes" element={<SafeBoxes />} />      {/* 👈 Ավելացված է */}
+          <Route path="accounts/safes" element={<SafeBoxes />} />
+          <Route path="hy/accounts/safes" element={<SafeBoxes />} />
 
           <Route path="transfers" element={<Transfers />} />
           <Route path="hy/transfers" element={<Transfers />} />
+          <Route path="transfers/payment-systems" element={<PaymentSystems />} />      {/* 👈 Ավելացված է */}
+          <Route path="hy/transfers/payment-systems" element={<PaymentSystems />} />  {/* 👈 Ավելացված է */}
+
           <Route path="securities" element={<Securities />} />
           <Route path="hy/securities" element={<Securities />} />
           <Route path="evoca-salary" element={<EvocaSalary />} />
