@@ -11,6 +11,8 @@ import SocialSecurityCards from './components/SocialSecurityCards';
 import Deposits from './pages/Deposits';
 import Accounts from './pages/Accounts';
 import UnallocatedMetalAccounts from './components/UnallocatedMetalAccounts';
+import NonResident from './components/NonResident';
+import SafeBoxes from './components/SafeBoxes'; // 👈 Ավելացված է (կարգավորիր ֆայլի ճանապարհը ըստ անհրաժեշտության)
 import Transfers from './pages/Transfers';
 import Securities from './pages/Securities';
 import EvocaSalary from './pages/EvocaSalary';
@@ -55,6 +57,10 @@ function App() {
           <Route path="hy/accounts" element={<Accounts />} />
           <Route path="accounts/unallocated-metal" element={<UnallocatedMetalAccounts />} />
           <Route path="hy/accounts/unallocated-metal" element={<UnallocatedMetalAccounts />} />
+          <Route path="accounts/non-resident" element={<NonResident />} />
+          <Route path="hy/accounts/non-resident" element={<NonResident />} />
+          <Route path="accounts/safes" element={<SafeBoxes />} />          {/* 👈 Ավելացված է */}
+          <Route path="hy/accounts/safes" element={<SafeBoxes />} />      {/* 👈 Ավելացված է */}
 
           <Route path="transfers" element={<Transfers />} />
           <Route path="hy/transfers" element={<Transfers />} />

@@ -24,8 +24,12 @@ const pageTitles = {
   '/hy/deposits': 'Ավանդներ | Էվոկաբանկ',
   '/accounts': 'Հաշիվներ | Էվոկաբանկ',
   '/hy/accounts': 'Հաշիվներ | Էվոկաբանկ',
-  '/accounts/unallocated-metal': 'Առարկայազուրկ մետաղական հաշիվներ | Էվոկաբանկ', // 👈 Ավելացված է
-  '/hy/accounts/unallocated-metal': 'Առարկայազուրկ մետաղական հաշիվներ | Էվոկաբանկ', // 👈 Ավելացված է
+  '/accounts/unallocated-metal': 'Առարկայազուրկ մետաղական հաշիվներ | Էվոկաբանկ',
+  '/hy/accounts/unallocated-metal': 'Առարկայազուրկ մետաղական հաշիվներ | Էվոկաբանկ',
+  '/accounts/non-resident': 'Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում | Էվոկաբանկ',
+  '/hy/accounts/non-resident': 'Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում | Էվոկաբանկ',
+  '/accounts/safes': 'Պահատուփեր | Էվոկաբանկ', // 👈 Ավելացված է
+  '/hy/accounts/safes': 'Պահատուփեր | Էվոկաբանկ', // 👈 Ավելացված է
   '/transfers': 'Փոխանցումներ | Էվոկաբանկ',
   '/hy/transfers': 'Փոխանցումներ | Էվոկաբանկ',
   '/securities': 'Արժեթղթեր | Էվոկաբանկ',
@@ -75,4 +79,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
